@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Ingeniería Petroquímica UVH</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">
+                <img src="assets/logo-uvh.png" alt="UVH Logo">
+                <span>Ingeniería Petroquímica</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#contenido">Contenido</a></li>
+                <li><a href="#recursos">Recursos PDF</a></li>
+                <li><a href="#uvh">UVH</a></li>
+                <li><a href="#comunidad">Comunidad</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="inicio" class="hero">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <div class="hero-content fade-in-up">
+                <span class="hero-tag">Blog Estudiantil UVH</span>
+                <h1 class="hero-title">Bienvenidos al Blog de <span class="highlight">Ingeniería Petroquímica UVH</span></h1>
+                <p class="hero-subtitle">El lugar donde la ciencia, la industria y la comunidad estudiantil se encuentran.</p>
+                <a href="#contenido" class="cta-button">Explorar contenido</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse"></div>
+        </div>
+    </section>
+
+    <!-- ¿Qué es este espacio? -->
+    <section id="que-es" class="section">
+        <div class="container">
+            <div class="section-header fade-in-up">
+                <span class="section-tag">01</span>
+                <h2>¿Qué es este espacio?</h2>
+            </div>
+            <div class="content-block fade-in-up">
+                <p>Este blog nace de la necesidad de crear un <strong>punto de encuentro digital</strong> para todos los estudiantes de la carrera de Ingeniería Petroquímica de la <strong>Universidad Venezolana de los Hidrocarburos (UVH)</strong>. Aquí no solo compartimos conocimientos académicos, sino que también construimos una comunidad que acompaña tu formación profesional desde el aula hasta la industria.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ¿Qué encontrarás aquí? -->
+    <section id="contenido" class="section section-dark">
+        <div class="container">
+            <div class="section-header fade-in-up">
+                <span class="section-tag">02</span>
+                <h2>¿Qué encontrarás aquí?</h2>
+            </div>
+            <div class="cards-grid">
+                <div class="card fade-in-up">
+                    <div class="card-icon">📚</div>
+                    <h3>Recursos académicos</h3>
+                    <p>Apuntes, guías de estudio, resúmenes de clases y material complementario para tus materias.</p>
+                </div>
+                <div class="card fade-in-up">
+                    <div class="card-icon">🔬</div>
+                    <h3>Avances tecnológicos</h3>
+                    <p>Noticias sobre innovaciones en procesos petroquímicos, energías alternativas y sostenibilidad.</p>
+                </div>
+                <div class="card fade-in-up">
+                    <div class="card-icon">💼</div>
+                    <h3>Vinculación profesional</h3>
+                    <p>Oportunidades de prácticas, becas, convocatorias y consejos para tu desarrollo laboral.</p>
+                </div>
+                <div class="card fade-in-up">
+                    <div class="card-icon">🎓</div>
+                    <h3>Experiencias estudiantiles</h3>
+                    <p>Historias, proyectos y logros de tus compañeros de generación.</p>
+                </div>
+                <div class="card fade-in-up">
+                    <div class="card-icon">🌍</div>
+                    <h3>Impacto social</h3>
+                    <p>Reflexiones sobre el rol de la petroquímica en el desarrollo sostenible de Venezuela y el mundo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 📄 SECCIÓN DE RECURSOS PDF -->
+    <section id="recursos" class="section">
+        <div class="container">
+            <div class="section-header fade-in-up">
+                <span class="section-tag">03</span>
+                <h2>Biblioteca de Recursos PDF</h2>
+                <p class="section-desc">Material académico y documentos importantes para tu formación. Haz clic para visualizarlos.</p>
+            </div>
+            
+            <div class="pdf-grid">
+                <!-- Card PDF 1 -->
+                <div class="pdf-card fade-in-up" onclick="openPdf('pdfs/guia_de_fisica_medina.pdf', 'Guía de Fisica - Medina')">
+                    <div class="pdf-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                            <polyline points="10 9 9 9 8 9"></polyline>
+                        </svg>
+                    </div>
+                    <div class="pdf-info">
+                        <h3>Guía de Estudio</h3>
+                        <p>Procesos Petroquímicos I - Resumen completo del semestre.</p>
+                        <span class="pdf-tag">Académico</span>
+                    </div>
+                    <div class="pdf-action">Ver documento →</div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre la UVH -->
+    <section id="uvh" class="section section-dark">
+        <div class="container">
+            <div class="section-header fade-in-up">
+                <span class="section-tag">04</span>
+                <h2>Sobre la UVH</h2>
+            </div>
+            <div class="content-block highlight-box fade-in-up">
+                <p>La <strong>Universidad Venezolana de los Hidrocarburos (UVH)</strong> es una institución de educación superior con una sólida trayectoria en la formación de profesionales para el sector energético venezolano. Con un enfoque orientado a la excelencia académica y la vinculación directa con la industria, la UVH se ha consolidado como un referente en la educación técnica y profesional del país.</p>
+                <p class="mt-2">Su misión es formar ingenieros y técnicos altamente capacitados, capaces de responder a los desafíos de una industria en constante transformación, siempre con compromiso social y visión de desarrollo sostenible.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Primera Cohorte -->
+    <section id="cohorte" class="section section-gradient">
+        <div class="container">
+            <div class="section-header fade-in-up">
+                <span class="section-tag">05</span>
+                <h2>Ustedes: La Primera Cohorte</h2>
+            </div>
+            <div class="content-block fade-in-up">
+                <p class="lead">Este blog tiene un significado especial: <span class="highlight-text">ustedes son la primera cohorte de Ingeniería Petroquímica de la UVH</span>.</p>
+                <p>Ser los primeros no es solo un título, es una <strong>responsabilidad y una oportunidad única</strong>. Ustedes están sentando las bases de lo que será una tradición de excelencia. Cada proyecto, cada logro y cada desafío superado abrirá el camino para las generaciones que vendrán. Están escribiendo la historia desde la página uno.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ¿Por qué Petroquímica? -->
+    <section id="porque" class="section">
+        <div class="container">
+            <div class="section-header fade-in-up">
+                <span class="section-tag">06</span>
+                <h2>¿Por qué Ingeniería Petroquímica?</h2>
+            </div>
+            <div class="content-block fade-in-up">
+                <p>La industria petroquímica es una de las <strong>columnas vertebrales de la economía moderna</strong>. Desde los plásticos que usamos diariamente hasta los combustibles que impulsan el mundo, los ingenieros petroquímicos están en el centro de procesos que transforman la materia prima en productos esenciales para la sociedad.</p>
+                <p class="mt-2">En la UVH, tu formación no solo se enfoca en la teoría, sino en prepararte para <strong>resolver problemas reales</strong> de una industria en constante evolución. Este blog es una extensión de esa misión.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="comunidad" class="section section-cta">
+        <div class="container">
+            <div class="cta-content fade-in-up">
+                <h2>¡Únete a la conversación!</h2>
+                <p>Este blog es <strong>tuyo</strong>. Te invitamos a participar activamente: comparte tus dudas, propón temas, escribe artículos o simplemente déjate inspirar por el contenido que tu comunidad genera.</p>
+                <blockquote>
+                    "La energía del futuro no solo se extrae del subsuelo, se construye con el conocimiento y la pasión de quienes la estudian."
+                </blockquote>
+                <div class="signature">
+                    <p><strong>Bienvenidos a bordo, pioneros.</strong></p>
+                    <p>— El equipo del Blog de Ingeniería Petroquímica UVH</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p> UVH - Ingeniería Petroquímica. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- PDF Modal -->
+    <div id="pdfModal" class="modal">
+        <div class="modal-overlay" onclick="closePdf()"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="pdfTitle">Documento PDF</h3>
+                <div class="modal-actions">
+                    <a id="pdfDownload" href="#" download class="modal-btn secondary">Descargar</a>
+                    <button class="modal-btn close" onclick="closePdf()" aria-label="Cerrar">✕</button>
+                </div>
+            </div>
+            <div class="modal-body">
+                <iframe id="pdfViewer" src="" frameborder="0"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
