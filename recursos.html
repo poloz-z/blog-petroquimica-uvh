@@ -11,7 +11,6 @@
 </head>
 <body>
 
-    <!-- Navbar -->
     <nav class="navbar">
         <div class="container">
             <a href="index.html" class="logo">
@@ -31,18 +30,16 @@
         </div>
     </nav>
 
-    <!-- Header de Recursos -->
     <section class="page-header">
         <div class="container">
             <div class="page-header-content fade-in-up">
                 <span class="section-tag">Biblioteca</span>
                 <h1>Recursos Académicos</h1>
-                <p>Material organizado por materia y tipo de contenido para facilitar tu estudio.</p>
+                <p>Material organizado por materia y tipo de contenido para facilitar tu estudio. Haz clic en cualquier recurso para verlo, descargarlo y comentar.</p>
             </div>
         </div>
     </section>
 
-    <!-- Filtros -->
     <section class="filters-section">
         <div class="container">
             <div class="filters fade-in-up">
@@ -50,11 +47,10 @@
                     <label>Materia</label>
                     <div class="filter-buttons" id="materiaFilters">
                         <button class="filter-btn active" data-filter="all">Todas</button>
-                        <button class="filter-btn" data-filter="matematica">Matemática</button>
                         <button class="filter-btn" data-filter="fisica">Física</button>
-                        <button class="filter-btn" data-filter="quimica">Química</button>
+                        <button class="filter-btn" data-filter="matematica">Matemáticas</button>
+                        <button class="filter-btn" data-filter="quimica">Química General</button>
                         <button class="filter-btn" data-filter="petroquimica">Petroquímica</button>
-                        <button class="filter-btn" data-filter="programacion">Programación</button>
                     </div>
                 </div>
                 <div class="filter-group">
@@ -62,193 +58,373 @@
                     <div class="filter-buttons" id="tipoFilters">
                         <button class="filter-btn active" data-filter="all">Todos</button>
                         <button class="filter-btn" data-filter="libro">📖 Libro</button>
-                        <button class="filter-btn" data-filter="formulario">📋 Formulario</button>
-                        <button class="filter-btn" data-filter="ejercicio">✏️ Ejercicio</button>
-                        <button class="filter-btn" data-filter="apunte">📝 Apunte</button>
                         <button class="filter-btn" data-filter="guia">📚 Guía</button>
+                        <button class="filter-btn" data-filter="ejercicio">✏️ Ejercicios</button>
+                        <button class="filter-btn" data-filter="formulario">📋 Formulario</button>
+                        <button class="filter-btn" data-filter="complementario">📎 Complementario</button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Grid de Recursos -->
     <section class="section section-recursos">
         <div class="container">
             <div class="recursos-grid" id="recursosGrid">
 
-                <!-- Matemática - Libro -->
-                <article class="recurso-card fade-in-up" data-materia="matematica" data-tipo="libro">
-                    <a href="recurso-matematica-libro.html" class="recurso-link">
+                <article class="recurso-card fade-in-up" data-materia="fisica" data-tipo="guia">
+                    <a href="recurso-fisica-guia-medina.html" class="recurso-link">
                         <div class="recurso-badge">
-                            <span class="badge-materia">Matemática</span>
-                            <span class="badge-tipo">Libro</span>
+                            <span class="badge-materia">Física</span>
+                            <span class="badge-tipo">Guía</span>
                         </div>
-                        <div class="recurso-icon">📖</div>
-                        <h3>Cálculo Diferencial e Integral</h3>
-                        <p>Libro completo de cálculo para ingeniería con ejemplos resueltos y aplicaciones industriales.</p>
+                        <div class="recurso-icon">📚</div>
+                        <h3>Guía de Física - Medina</h3>
+                        <p>Guía completa de física general con teoría, ejemplos resueltos y ejercicios propuestos para nivel un...</p>
                         <div class="recurso-meta">
                             <span>📄 PDF</span>
-                            <span>💬 12 comentarios</span>
+                            <span>💬 Comentar</span>
                         </div>
                     </a>
                 </article>
 
-                <!-- Matemática - Formulario -->
-                <article class="recurso-card fade-in-up" data-materia="matematica" data-tipo="formulario">
-                    <a href="recurso-matematica-formulario.html" class="recurso-link">
-                        <div class="recurso-badge">
-                            <span class="badge-materia">Matemática</span>
-                            <span class="badge-tipo">Formulario</span>
-                        </div>
-                        <div class="recurso-icon">📋</div>
-                        <h3>Formulario de Derivadas e Integrales</h3>
-                        <p>Tabla rápida de derivadas, integrales y fórmulas trigonométricas esenciales.</p>
-                        <div class="recurso-meta">
-                            <span>📄 PDF</span>
-                            <span>💬 8 comentarios</span>
-                        </div>
-                    </a>
-                </article>
-
-                <!-- Matemática - Ejercicio -->
-                <article class="recurso-card fade-in-up" data-materia="matematica" data-tipo="ejercicio">
-                    <a href="recurso-matematica-ejercicios.html" class="recurso-link">
-                        <div class="recurso-badge">
-                            <span class="badge-materia">Matemática</span>
-                            <span class="badge-tipo">Ejercicio</span>
-                        </div>
-                        <div class="recurso-icon">✏️</div>
-                        <h3>Ejercicios Resueltos: Límites</h3>
-                        <p>Colección de 50 ejercicios de límites con solución paso a paso para preparación de examen.</p>
-                        <div class="recurso-meta">
-                            <span>📄 PDF</span>
-                            <span>💬 5 comentarios</span>
-                        </div>
-                    </a>
-                </article>
-
-                <!-- Física - Libro -->
                 <article class="recurso-card fade-in-up" data-materia="fisica" data-tipo="libro">
-                    <a href="recurso-fisica-libro.html" class="recurso-link">
+                    <a href="recurso-fisica-libro-sears.html" class="recurso-link">
                         <div class="recurso-badge">
                             <span class="badge-materia">Física</span>
                             <span class="badge-tipo">Libro</span>
                         </div>
                         <div class="recurso-icon">📖</div>
-                        <h3>Física para Ciencias e Ingeniería</h3>
-                        <p>Texto completo de física general mecánica, termodinámica y electromagnetismo.</p>
+                        <h3>Física Universitaria - Sears, Zemansky</h3>
+                        <p>Texto clásico de física universitaria. Mecánica, termodinámica, electromagnetismo y óptica con rigor...</p>
                         <div class="recurso-meta">
                             <span>📄 PDF</span>
-                            <span>💬 15 comentarios</span>
+                            <span>💬 Comentar</span>
                         </div>
                     </a>
                 </article>
 
-                <!-- Física - Formulario -->
-                <article class="recurso-card fade-in-up" data-materia="fisica" data-tipo="formulario">
-                    <a href="recurso-fisica-formulario.html" class="recurso-link">
+                <article class="recurso-card fade-in-up" data-materia="matematica" data-tipo="complementario">
+                    <a href="recurso-matematica-complementario-farith.html" class="recurso-link">
                         <div class="recurso-badge">
-                            <span class="badge-materia">Física</span>
+                            <span class="badge-materia">Matemáticas</span>
+                            <span class="badge-tipo">Complementario</span>
+                        </div>
+                        <div class="recurso-icon">📎</div>
+                        <h3>Guía de Farith - Septiembre 2010</h3>
+                        <p>Material complementario de matemáticas con ejercicios prácticos y explicaciones detalladas para refo...</p>
+                        <div class="recurso-meta">
+                            <span>📄 PDF</span>
+                            <span>💬 Comentar</span>
+                        </div>
+                    </a>
+                </article>
+
+                <article class="recurso-card fade-in-up" data-materia="matematica" data-tipo="ejercicio">
+                    <a href="recurso-matematica-ejercicios-demidovich.html" class="recurso-link">
+                        <div class="recurso-badge">
+                            <span class="badge-materia">Matemáticas</span>
+                            <span class="badge-tipo">Ejercicios</span>
+                        </div>
+                        <div class="recurso-icon">✏️</div>
+                        <h3>Problemario - Demidovich</h3>
+                        <p>Colección clásica de más de 3,000 problemas de análisis matemático. Ideal para practicar cálculo dif...</p>
+                        <div class="recurso-meta">
+                            <span>📄 PDF</span>
+                            <span>💬 Comentar</span>
+                        </div>
+                    </a>
+                </article>
+
+                <article class="recurso-card fade-in-up" data-materia="matematica" data-tipo="formulario">
+                    <a href="recurso-matematica-formulario-cuadrados.html" class="recurso-link">
+                        <div class="recurso-badge">
+                            <span class="badge-materia">Matemáticas</span>
                             <span class="badge-tipo">Formulario</span>
                         </div>
                         <div class="recurso-icon">📋</div>
-                        <h3>Formulario de Física General</h3>
-                        <p>Ecuaciones de cinemática, dinámica, energía, ondas y termodinámica en una sola hoja.</p>
+                        <h3>Completación de Cuadrados</h3>
+                        <p>Formulario rápido con métodos y ejemplos de completación de cuadrados para resolver ecuaciones cuadr...</p>
                         <div class="recurso-meta">
                             <span>📄 PDF</span>
-                            <span>💬 6 comentarios</span>
+                            <span>💬 Comentar</span>
                         </div>
                     </a>
                 </article>
 
-                <!-- Física - Ejercicio -->
-                <article class="recurso-card fade-in-up" data-materia="fisica" data-tipo="ejercicio">
-                    <a href="recurso-fisica-ejercicios.html" class="recurso-link">
+                <article class="recurso-card fade-in-up" data-materia="matematica" data-tipo="formulario">
+                    <a href="recurso-matematica-formulario-productos.html" class="recurso-link">
                         <div class="recurso-badge">
-                            <span class="badge-materia">Física</span>
-                            <span class="badge-tipo">Ejercicio</span>
+                            <span class="badge-materia">Matemáticas</span>
+                            <span class="badge-tipo">Formulario</span>
                         </div>
-                        <div class="recurso-icon">✏️</div>
-                        <h3>Problemas de Termodinámica</h3>
-                        <p>Ejercicios resueltos de leyes de gases, calorimetría y ciclos termodinámicos.</p>
+                        <div class="recurso-icon">📋</div>
+                        <h3>Formulario de Productos Notables y Factorización</h3>
+                        <p>Tabla completa de productos notables, factorización y casos especiales. Esencial para álgebra y prec...</p>
                         <div class="recurso-meta">
                             <span>📄 PDF</span>
-                            <span>💬 9 comentarios</span>
+                            <span>💬 Comentar</span>
                         </div>
                     </a>
                 </article>
 
-                <!-- Química - Libro -->
-                <article class="recurso-card fade-in-up" data-materia="quimica" data-tipo="libro">
-                    <a href="recurso-quimica-libro.html" class="recurso-link">
+                <article class="recurso-card fade-in-up" data-materia="matematica" data-tipo="formulario">
+                    <a href="recurso-matematica-formulario-trigonometria.html" class="recurso-link">
                         <div class="recurso-badge">
-                            <span class="badge-materia">Química</span>
+                            <span class="badge-materia">Matemáticas</span>
+                            <span class="badge-tipo">Formulario</span>
+                        </div>
+                        <div class="recurso-icon">📋</div>
+                        <h3>Formulario de Trigonometría</h3>
+                        <p>Identidades trigonométricas fundamentales, fórmulas de ángulos, leyes de senos y cosenos, y funcione...</p>
+                        <div class="recurso-meta">
+                            <span>📄 PDF</span>
+                            <span>💬 Comentar</span>
+                        </div>
+                    </a>
+                </article>
+
+                <article class="recurso-card fade-in-up" data-materia="matematica" data-tipo="libro">
+                    <a href="recurso-matematica-libro-baldor.html" class="recurso-link">
+                        <div class="recurso-badge">
+                            <span class="badge-materia">Matemáticas</span>
                             <span class="badge-tipo">Libro</span>
                         </div>
                         <div class="recurso-icon">📖</div>
-                        <h3>Química Orgánica Avanzada</h3>
-                        <p>Libro de referencia para compuestos orgánicos, reacciones y mecanismos.</p>
+                        <h3>Álgebra de Baldor</h3>
+                        <p>El clásico libro de álgebra en español. Fundamentos de ecuaciones, polinomios, fracciones y factoriz...</p>
                         <div class="recurso-meta">
                             <span>📄 PDF</span>
-                            <span>💬 7 comentarios</span>
+                            <span>💬 Comentar</span>
                         </div>
                     </a>
                 </article>
 
-                <!-- Petroquímica - Guía -->
+                <article class="recurso-card fade-in-up" data-materia="matematica" data-tipo="libro">
+                    <a href="recurso-matematica-libro-geometria.html" class="recurso-link">
+                        <div class="recurso-badge">
+                            <span class="badge-materia">Matemáticas</span>
+                            <span class="badge-tipo">Libro</span>
+                        </div>
+                        <div class="recurso-icon">📖</div>
+                        <h3>Geometría Analítica - Pearson</h3>
+                        <p>Libro de geometría analítica con enfoque en coordenadas, cónicas, rectas y aplicaciones al cálculo v...</p>
+                        <div class="recurso-meta">
+                            <span>📄 PDF</span>
+                            <span>💬 Comentar</span>
+                        </div>
+                    </a>
+                </article>
+
+                <article class="recurso-card fade-in-up" data-materia="matematica" data-tipo="libro">
+                    <a href="recurso-matematica-libro-precalculo.html" class="recurso-link">
+                        <div class="recurso-badge">
+                            <span class="badge-materia">Matemáticas</span>
+                            <span class="badge-tipo">Libro</span>
+                        </div>
+                        <div class="recurso-icon">📖</div>
+                        <h3>Precálculo - Stewart</h3>
+                        <p>Texto de precálculo que cubre funciones, trigonometría, exponenciales y logarítmicas. Base sólida pa...</p>
+                        <div class="recurso-meta">
+                            <span>📄 PDF</span>
+                            <span>💬 Comentar</span>
+                        </div>
+                    </a>
+                </article>
+
+                <article class="recurso-card fade-in-up" data-materia="matematica" data-tipo="libro">
+                    <a href="recurso-matematica-libro-calculo.html" class="recurso-link">
+                        <div class="recurso-badge">
+                            <span class="badge-materia">Matemáticas</span>
+                            <span class="badge-tipo">Libro</span>
+                        </div>
+                        <div class="recurso-icon">📖</div>
+                        <h3>Cálculo Diferencial - Purcell, Varberg, Rigdon</h3>
+                        <p>Libro de cálculo diferencial con enfoque en límites, derivadas y aplicaciones a problemas de ingenie...</p>
+                        <div class="recurso-meta">
+                            <span>📄 PDF</span>
+                            <span>💬 Comentar</span>
+                        </div>
+                    </a>
+                </article>
+
                 <article class="recurso-card fade-in-up" data-materia="petroquimica" data-tipo="guia">
-                    <a href="recurso-petroquimica-guia.html" class="recurso-link">
+                    <a href="recurso-petroquimica-guia-balances.html" class="recurso-link">
                         <div class="recurso-badge">
                             <span class="badge-materia">Petroquímica</span>
                             <span class="badge-tipo">Guía</span>
                         </div>
                         <div class="recurso-icon">📚</div>
-                        <h3>Guía de Procesos Petroquímicos I</h3>
-                        <p>Resumen completo del semestre con diagramas de flujo y balances de masa.</p>
+                        <h3>Balances de Masa en Estado Estacionario</h3>
+                        <p>Guía práctica para resolver balances de materia en sistemas industriales sin acumulación. Procesos c...</p>
                         <div class="recurso-meta">
                             <span>📄 PDF</span>
-                            <span>💬 20 comentarios</span>
+                            <span>💬 Comentar</span>
                         </div>
                     </a>
                 </article>
 
-                <!-- Petroquímica - Apunte -->
-                <article class="recurso-card fade-in-up" data-materia="petroquimica" data-tipo="apunte">
-                    <a href="recurso-petroquimica-apunte.html" class="recurso-link">
+                <article class="recurso-card fade-in-up" data-materia="petroquimica" data-tipo="guia">
+                    <a href="recurso-petroquimica-guia-propiedades.html" class="recurso-link">
                         <div class="recurso-badge">
                             <span class="badge-materia">Petroquímica</span>
-                            <span class="badge-tipo">Apunte</span>
+                            <span class="badge-tipo">Guía</span>
                         </div>
-                        <div class="recurso-icon">📝</div>
-                        <h3>Apuntes de Refinación de Crudo</h3>
-                        <p>Notas detalladas de clase con diagramas de torres de destilación y procesos.</p>
+                        <div class="recurso-icon">📚</div>
+                        <h3>Estimación de Propiedades</h3>
+                        <p>Métodos para estimar propiedades físicas y termodinámicas de sustancias puras y mezclas en procesos ...</p>
                         <div class="recurso-meta">
                             <span>📄 PDF</span>
-                            <span>💬 11 comentarios</span>
+                            <span>💬 Comentar</span>
                         </div>
                     </a>
                 </article>
 
-                <!-- Programación - Ejercicio -->
-                <article class="recurso-card fade-in-up" data-materia="programacion" data-tipo="ejercicio">
-                    <a href="recurso-programacion-ejercicios.html" class="recurso-link">
+                <article class="recurso-card fade-in-up" data-materia="petroquimica" data-tipo="guia">
+                    <a href="recurso-petroquimica-guia-magnitudes.html" class="recurso-link">
                         <div class="recurso-badge">
-                            <span class="badge-materia">Programación</span>
-                            <span class="badge-tipo">Ejercicio</span>
+                            <span class="badge-materia">Petroquímica</span>
+                            <span class="badge-tipo">Guía</span>
                         </div>
-                        <div class="recurso-icon">✏️</div>
-                        <h3>Ejercicios de Python para Ingenieros</h3>
-                        <p>Scripts resueltos para cálculo numérico, gráficas y simulaciones básicas.</p>
+                        <div class="recurso-icon">📚</div>
+                        <h3>Magnitudes Físicas</h3>
+                        <p>Guía de unidades, dimensiones y conversiones fundamentales para ingeniería química y petroquímica.</p>
                         <div class="recurso-meta">
                             <span>📄 PDF</span>
-                            <span>💬 4 comentarios</span>
+                            <span>💬 Comentar</span>
+                        </div>
+                    </a>
+                </article>
+
+                <article class="recurso-card fade-in-up" data-materia="petroquimica" data-tipo="libro">
+                    <a href="recurso-petroquimica-libro-reklaitis.html" class="recurso-link">
+                        <div class="recurso-badge">
+                            <span class="badge-materia">Petroquímica</span>
+                            <span class="badge-tipo">Libro</span>
+                        </div>
+                        <div class="recurso-icon">📖</div>
+                        <h3>Balances de Masa y Energía - Reklaitis</h3>
+                        <p>Texto fundamental sobre balances de materia y energía aplicados a procesos químicos con ejemplos ind...</p>
+                        <div class="recurso-meta">
+                            <span>📄 PDF</span>
+                            <span>💬 Comentar</span>
+                        </div>
+                    </a>
+                </article>
+
+                <article class="recurso-card fade-in-up" data-materia="petroquimica" data-tipo="libro">
+                    <a href="recurso-petroquimica-libro-himmelblau.html" class="recurso-link">
+                        <div class="recurso-badge">
+                            <span class="badge-materia">Petroquímica</span>
+                            <span class="badge-tipo">Libro</span>
+                        </div>
+                        <div class="recurso-icon">📖</div>
+                        <h3>Principios de Ingeniería Química - Himmelblau (6ta Ed.)</h3>
+                        <p>Libro clásico de principios básicos de ingeniería química. Balances, termodinámica y cinética de rea...</p>
+                        <div class="recurso-meta">
+                            <span>📄 PDF</span>
+                            <span>💬 Comentar</span>
+                        </div>
+                    </a>
+                </article>
+
+                <article class="recurso-card fade-in-up" data-materia="petroquimica" data-tipo="libro">
+                    <a href="recurso-petroquimica-libro-elementales.html" class="recurso-link">
+                        <div class="recurso-badge">
+                            <span class="badge-materia">Petroquímica</span>
+                            <span class="badge-tipo">Libro</span>
+                        </div>
+                        <div class="recurso-icon">📖</div>
+                        <h3>Principios Elementales de los Procesos Químicos</h3>
+                        <p>Introducción a los procesos químicos industriales: diagramas de flujo, balances y equipos de proceso...</p>
+                        <div class="recurso-meta">
+                            <span>📄 PDF</span>
+                            <span>💬 Comentar</span>
+                        </div>
+                    </a>
+                </article>
+
+                <article class="recurso-card fade-in-up" data-materia="petroquimica" data-tipo="libro">
+                    <a href="recurso-petroquimica-libro-procesos.html" class="recurso-link">
+                        <div class="recurso-badge">
+                            <span class="badge-materia">Petroquímica</span>
+                            <span class="badge-tipo">Libro</span>
+                        </div>
+                        <div class="recurso-icon">📖</div>
+                        <h3>Procesos Petroquímicos</h3>
+                        <p>Visión integral de la industria petroquímica: desde la refinación hasta productos de alto valor agre...</p>
+                        <div class="recurso-meta">
+                            <span>📄 PDF</span>
+                            <span>💬 Comentar</span>
+                        </div>
+                    </a>
+                </article>
+
+                <article class="recurso-card fade-in-up" data-materia="quimica" data-tipo="ejercicio">
+                    <a href="recurso-quimica-ejercicios-guia.html" class="recurso-link">
+                        <div class="recurso-badge">
+                            <span class="badge-materia">Química General</span>
+                            <span class="badge-tipo">Ejercicios</span>
+                        </div>
+                        <div class="recurso-icon">✏️</div>
+                        <h3>Guía de Ejercicios de Química General</h3>
+                        <p>Ejercicios prácticos de estequiometría, gases, soluciones y termoquímica con soluciones detalladas.</p>
+                        <div class="recurso-meta">
+                            <span>📄 PDF</span>
+                            <span>💬 Comentar</span>
+                        </div>
+                    </a>
+                </article>
+
+                <article class="recurso-card fade-in-up" data-materia="quimica" data-tipo="ejercicio">
+                    <a href="recurso-quimica-ejercicios-problemario.html" class="recurso-link">
+                        <div class="recurso-badge">
+                            <span class="badge-materia">Química General</span>
+                            <span class="badge-tipo">Ejercicios</span>
+                        </div>
+                        <div class="recurso-icon">✏️</div>
+                        <h3>Problemario de Química General</h3>
+                        <p>Colección extensa de problemas de química general para practicar antes de exámenes parciales y final...</p>
+                        <div class="recurso-meta">
+                            <span>📄 PDF</span>
+                            <span>💬 Comentar</span>
+                        </div>
+                    </a>
+                </article>
+
+                <article class="recurso-card fade-in-up" data-materia="quimica" data-tipo="libro">
+                    <a href="recurso-quimica-libro-chang.html" class="recurso-link">
+                        <div class="recurso-badge">
+                            <span class="badge-materia">Química General</span>
+                            <span class="badge-tipo">Libro</span>
+                        </div>
+                        <div class="recurso-icon">📖</div>
+                        <h3>Química - Raymond Chang (7ma Edición)</h3>
+                        <p>Texto de química general con enfoque conceptual. Estructura atómica, enlaces, termodinámica y cinéti...</p>
+                        <div class="recurso-meta">
+                            <span>📄 PDF</span>
+                            <span>💬 Comentar</span>
+                        </div>
+                    </a>
+                </article>
+
+                <article class="recurso-card fade-in-up" data-materia="quimica" data-tipo="libro">
+                    <a href="recurso-quimica-libro-petrucci.html" class="recurso-link">
+                        <div class="recurso-badge">
+                            <span class="badge-materia">Química General</span>
+                            <span class="badge-tipo">Libro</span>
+                        </div>
+                        <div class="recurso-icon">📖</div>
+                        <h3>Química General - Petrucci</h3>
+                        <p>Libro de referencia para química general con énfasis en aplicaciones prácticas y problemas contextua...</p>
+                        <div class="recurso-meta">
+                            <span>📄 PDF</span>
+                            <span>💬 Comentar</span>
                         </div>
                     </a>
                 </article>
 
             </div>
-
             <div class="no-results" id="noResults" style="display:none;">
                 <div class="no-results-icon">🔍</div>
                 <h3>No se encontraron recursos</h3>
@@ -257,7 +433,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <p> UVH - Ingeniería Petroquímica. Todos los derechos reservados.</p>
