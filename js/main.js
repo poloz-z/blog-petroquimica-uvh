@@ -21,12 +21,12 @@ const navbar = document.querySelector('.navbar');
 
 window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
-    
+
     if (currentScroll > 100) {
-        navbar.style.background = 'rgba(10, 10, 15, 0.95)';
-        navbar.style.boxShadow = '0 4px 20px rgba(0,0,0,0.3)';
+        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+        navbar.style.boxShadow = '0 4px 20px rgba(122, 12, 23, 0.08)';
     } else {
-        navbar.style.background = 'rgba(10, 10, 15, 0.8)';
+        navbar.style.background = 'rgba(255, 255, 255, 0.92)';
         navbar.style.boxShadow = 'none';
     }
 });
@@ -35,16 +35,17 @@ window.addEventListener('scroll', () => {
 const hamburger = document.getElementById('hamburger');
 const navLinks = document.getElementById('navLinks');
 
-hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-});
-
-// Cerrar menú al hacer clic en un link
-document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
+if (hamburger && navLinks) {
+    hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
     });
-});
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+        });
+    });
+}
 
 // ========== SMOOTH SCROLL ==========
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -52,7 +53,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-            const offsetTop = target.offsetTop - 80; // compensar navbar fijo
+            const offsetTop = target.offsetTop - 80;
             window.scrollTo({
                 top: offsetTop,
                 behavior: 'smooth'
@@ -61,29 +62,56 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// ========== PDF MODAL ==========
-const modal = document.getElementById('pdfModal');
-const pdfViewer = document.getElementById('pdfViewer');
-const pdfTitle = document.getElementById('pdfTitle');
-const pdfDownload = document.getElementById('pdfDownload');
+// ========== FILTROS DE RECURSOS ==========
+(function() {
+    const materiaButtons = document.querySelectorAll('#materiaFilters .filter-btn');
+    const tipoButtons = document.querySelectorAll('#tipoFilters .filter-btn');
+    const cards = document.querySelectorAll('.recurso-card');
+    const noResults = document.getElementById('noResults');
 
-function openPdf(url, title) {
-    pdfViewer.src = url;
-    pdfTitle.textContent = title || 'Documento PDF';
-    pdfDownload.href = url;
-    modal.classList.add('active');
-    document.body.style.overflow = 'hidden'; // evitar scroll del body
-}
+    if (!materiaButtons.length || !cards.length) return;
 
-function closePdf() {
-    modal.classList.remove('active');
-    pdfViewer.src = ''; // limpiar para detener carga
-    document.body.style.overflow = '';
-}
+    let activeMateria = 'all';
+    let activeTipo = 'all';
 
-// Cerrar con tecla ESC
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal.classList.contains('active')) {
-        closePdf();
+    function filterCards() {
+        let visibleCount = 0;
+
+        cards.forEach(card => {
+            const materia = card.dataset.materia;
+            const tipo = card.dataset.tipo;
+
+            const matchMateria = activeMateria === 'all' || materia === activeMateria;
+            const matchTipo = activeTipo === 'all' || tipo === activeTipo;
+
+            if (matchMateria && matchTipo) {
+                card.classList.remove('hidden');
+                visibleCount++;
+            } else {
+                card.classList.add('hidden');
+            }
+        });
+
+        if (noResults) {
+            noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+        }
     }
-});
+
+    materiaButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            materiaButtons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            activeMateria = btn.dataset.filter;
+            filterCards();
+        });
+    });
+
+    tipoButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            tipoButtons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            activeTipo = btn.dataset.filter;
+            filterCards();
+        });
+    });
+})();
