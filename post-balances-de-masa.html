@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Balances de Masa en Ingenieria Petroquimica | Blog UVH</title>
+    <title>Balances de Masa en Ingeniería Petroquímica | Blog UVH</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-    <!-- KaTeX for Math Rendering -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.47/dist/katex.min.css" integrity="sha384-nH0MfJ44wi1dd7w6jinlyBgljjS8EJAh2JBoRad8a3VDw2K69vfaaqm4WnR+gXtA" crossorigin="anonymous">
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.47/dist/katex.min.js" integrity="sha384-CwjPRVHTvLiMBFjEoij+QZViMV5rhTOIp7CJzl24JEqpRDA1sJFHVXXLURktbYYp" crossorigin="anonymous"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.47/dist/contrib/auto-render.min.js" integrity="sha384-bjyGPfbij8/NDKJhSGZNP/khQVgtHUE5exjm4Ydllo42FwIgYsdLO2lXGmRBf5Mz" crossorigin="anonymous"
@@ -24,7 +23,6 @@
         });"></script>
 
     <style>
-        /* Estilos adicionales para ecuaciones y componentes del articulo */
         .equation-box {
             background: #F5F5F5;
             border: 2px solid #E0E0E0;
@@ -278,7 +276,6 @@
             .cards-grid-article { grid-template-columns: 1fr; }
         }
     </style>
-<base target="_blank">
 </head>
 <body>
 
@@ -286,7 +283,7 @@
         <div class="container">
             <a href="index.html" class="logo">
                 <img src="assets/logo-uvh.png" alt="UVH Logo">
-                <span>Ingenieria Petroquimica</span>
+                <span>Ingeniería Petroquímica</span>
             </a>
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html#inicio">Inicio</a></li>
@@ -309,8 +306,8 @@
                 <span class="breadcrumb-current">Blog</span>
             </div>
             <div class="page-header-content fade-in-up">
-                <span class="section-tag">Articulo Tecnico</span>
-                <h1>Balances de Masa: Fundamentos y Clasificacion en Procesos Petroquimicos</h1>
+                <span class="section-tag">Artículo Técnico</span>
+                <h1>Balances de Masa: Fundamentos y Clasificación en Procesos Petroquímicos</h1>
                 <p style="color: var(--text-secondary); margin-top: 0.5rem;">Publicado el 22 de mayo de 2026 &middot; Por el Equipo del Blog UVH</p>
             </div>
         </div>
@@ -320,33 +317,33 @@
         <div class="container">
             <div class="content-block fade-in-up" style="max-width: 800px; margin: 0 auto;">
 
-                <p class="lead">El dominio de los <strong>balances de masa</strong> constituye la piedra angular del analisis de procesos en ingenieria petroquimica. Este articulo desarrolla los principios de conservacion, la conceptualizacion de sistemas, la formulacion general del balance y su clasificacion segun el estado temporal y la presencia de reaccion quimica, con todas las ecuaciones matematicas que los estudiantes de la UVH necesitan dominar.</p>
+                <p class="lead">El dominio de los <strong>balances de masa</strong> constituye la piedra angular del análisis de procesos en ingenieria petroquímica. Este artículo desarrolla los principios de conservación, la conceptualizacion de sistemas, la formulacion general del balance y su clasificación según el estado temporal y la presencia de reacción química, con todas las ecuaciones matemáticas que los estudiantes de la UVH necesitan dominar.</p>
 
                 <!-- SECCION 1 -->
-                <h2 style="font-family: var(--font-serif); font-size: 1.8rem; margin: 2.5rem 0 1rem; color: var(--text-primary);">1. Principios de Conservacion</h2>
+                <h2 style="font-family: var(--font-serif); font-size: 1.8rem; margin: 2.5rem 0 1rem; color: var(--text-primary);">1. Principios de Conservación</h2>
 
-                <p>La base de todo analisis de procesos quimicos descansa en las <strong>leyes de conservacion</strong>. Estas leyes establecen que ciertas propiedades permanecen constantes durante una transformacion, siempre que se considere un volumen de control apropiado.</p>
+                <p>La base de todo análisis de procesos químicos descansa en las <strong>leyes de conservación</strong>. Estas leyes establecen que ciertas propiedades permanecen constantes durante una transformación, siempre que se considere un volumen de control apropiado.</p>
 
-                <h3 style="font-family: var(--font-serif); font-size: 1.4rem; margin: 1.5rem 0 0.5rem; color: var(--text-primary);">1.1 Ley de Conservacion de la Masa</h3>
+                <h3 style="font-family: var(--font-serif); font-size: 1.4rem; margin: 1.5rem 0 0.5rem; color: var(--text-primary);">1.1 Ley de Conservación de la Masa</h3>
 
                 <div class="highlight-box-article">
                     <div class="label">Principio Fundamental</div>
                     <p style="font-style: italic; font-size: 1.1rem; margin: 0;">"La materia no se crea ni se destruye, solo se transforma." - Antoine Lavoisier (1789)</p>
                 </div>
 
-                <p>En terminos matematicos, para cualquier sistema:</p>
+                <p>En términos matematicos, para cualquier sistema:</p>
 
                 <div class="equation-box">
                     <div class="eq-number">(1.1)</div>
                     $$\text{Masa que entra} - \text{Masa que sale} + \text{Masa generada} - \text{Masa consumida} = \text{Acumulacion de masa}$$
                     <div class="eq-desc">
-                        Esta es la <strong>forma general del balance de masa</strong>, valida tanto para sistemas macroscopicos como para el analisis de un punto infinitesimal del fluido.
+                        Esta es la <strong>forma general del balance de masa</strong>, valida tanto para sistemas macroscopicos como para el análisis de un punto infinitesimal del fluido.
                     </div>
                 </div>
 
-                <h3 style="font-family: var(--font-serif); font-size: 1.4rem; margin: 1.5rem 0 0.5rem; color: var(--text-primary);">1.2 Principio de Conservacion de la Energia</h3>
+                <h3 style="font-family: var(--font-serif); font-size: 1.4rem; margin: 1.5rem 0 0.5rem; color: var(--text-primary);">1.2 Principio de Conservación de la Energia</h3>
 
-                <p>Aunque este articulo se centra en balances de masa, es importante recordar que en procesos petroquimicos reales, los balances de masa y energia estan acoplados:</p>
+                <p>Aunque este artículo se centra en balances de masa, es importante recordar que en procesos petroquímicos reales, los balances de masa y energia estan acoplados:</p>
 
                 <div class="equation-box">
                     <div class="eq-number">(1.2)</div>
@@ -359,11 +356,11 @@
                 <!-- SECCION 2 -->
                 <h2 style="font-family: var(--font-serif); font-size: 1.8rem; margin: 2.5rem 0 1rem; color: var(--text-primary);">2. Conceptualizacion de Sistemas</h2>
 
-                <p>Antes de plantear cualquier ecuacion de balance, es fundamental definir que estamos estudiando.</p>
+                <p>Antes de plantear cualquier ecuación de balance, es fundamental definir que estamos estudiando.</p>
 
-                <h3 style="font-family: var(--font-serif); font-size: 1.4rem; margin: 1.5rem 0 0.5rem; color: var(--text-primary);">2.1 Definicion de Sistema</h3>
+                <h3 style="font-family: var(--font-serif); font-size: 1.4rem; margin: 1.5rem 0 0.5rem; color: var(--text-primary);">2.1 Definición de Sistema</h3>
 
-                <p>Un <strong>sistema</strong> es una porcion del universo que se selecciona para su analisis, delimitado por una <strong>frontera</strong> (real o imaginaria) que lo separa de los alrededores.</p>
+                <p>Un <strong>sistema</strong> es una porcion del universo que se selecciona para su análisis, delimitado por una <strong>frontera</strong> (real o imaginaria) que lo separa de los alrededores.</p>
 
                 <h3 style="font-family: var(--font-serif); font-size: 1.4rem; margin: 1.5rem 0 0.5rem; color: var(--text-primary);">2.2 Tipos de Sistemas</h3>
 
@@ -372,9 +369,9 @@
                         <thead>
                             <tr>
                                 <th>Tipo de Sistema</th>
-                                <th>Definicion</th>
+                                <th>Definición</th>
                                 <th>Caracteristicas</th>
-                                <th>Ejemplo en Petroquimica</th>
+                                <th>Ejemplo en Petroquímica</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -382,18 +379,18 @@
                                 <td><strong>Sistema Cerrado</strong></td>
                                 <td>No permite transferencia de masa a traves de la frontera</td>
                                 <td>Solo intercambia energia (calor y trabajo) con los alrededores</td>
-                                <td>Reactor batch para polimerizacion</td>
+                                <td>Reactor batch para polimerización</td>
                             </tr>
                             <tr>
                                 <td><strong>Sistema Abierto</strong></td>
                                 <td>Permite transferencia de masa a traves de la frontera</td>
                                 <td>Intercambia masa y energia</td>
-                                <td>Columna de destilacion, intercambiador de calor</td>
+                                <td>Columna de destilación, intercambiador de calor</td>
                             </tr>
                             <tr>
                                 <td><strong>Sistema Aislado</strong></td>
                                 <td>No intercambia ni masa ni energia</td>
-                                <td>Idealizacion teorica; no existe en la realidad</td>
+                                <td>Idealización teorica; no existe en la realidad</td>
                                 <td>Universo (aproximacion)</td>
                             </tr>
                         </tbody>
@@ -413,14 +410,14 @@
                     <div class="card-article">
                         <div class="card-icon" style="background: #E8F5E9; color: #2E7D32;">&#128295;</div>
                         <h4 style="margin-top: 0;">Volumen de Control Movil</h4>
-                        <p style="color: #616161;">La frontera se desplaza. Ejemplo: un piston en un compresor.</p>
+                        <p style="color: #616161;">La frontera se desplaza. Ejemplo: un pistón en un compresor.</p>
                     </div>
                 </div>
 
                 <!-- SECCION 3 -->
                 <h2 style="font-family: var(--font-serif); font-size: 1.8rem; margin: 2.5rem 0 1rem; color: var(--text-primary);">3. Formulacion General del Balance de Masa</h2>
 
-                <h3 style="font-family: var(--font-serif); font-size: 1.4rem; margin: 1.5rem 0 0.5rem; color: var(--text-primary);">3.1 Balance Macroscopico (Integral)</h3>
+                <h3 style="font-family: var(--font-serif); font-size: 1.4rem; margin: 1.5rem 0 0.5rem; color: var(--text-primary);">3.1 Balance Macroscópico (Integral)</h3>
 
                 <p>Para un volumen de control fijo en el espacio:</p>
 
@@ -432,33 +429,33 @@
                         $m_{\text{sistema}}$ - Masa total dentro del VC [kg]<br>
                         $\dot{m}_{\text{entrada},j}$ - Flujo masico de entrada por corriente $j$ [kg/s]<br>
                         $\dot{m}_{\text{salida},k}$ - Flujo masico de salida por corriente $k$ [kg/s]<br>
-                        $\dot{m}_{\text{generada}}$ - Tasa de generacion por reaccion [kg/s]<br>
-                        $\dot{m}_{\text{consumida}}$ - Tasa de consumo por reaccion [kg/s]
+                        $\dot{m}_{\text{generada}}$ - Tasa de generación por reacción [kg/s]<br>
+                        $\dot{m}_{\text{consumida}}$ - Tasa de consumo por reacción [kg/s]
                     </div>
                 </div>
 
-                <h3 style="font-family: var(--font-serif); font-size: 1.4rem; margin: 1.5rem 0 0.5rem; color: var(--text-primary);">3.2 Balance en Terminos de Flujos Molares</h3>
+                <h3 style="font-family: var(--font-serif); font-size: 1.4rem; margin: 1.5rem 0 0.5rem; color: var(--text-primary);">3.2 Balance en Términos de Flujos Molares</h3>
 
-                <p>En ingenieria quimica es frecuente trabajar con moles, especialmente cuando hay reacciones quimicas:</p>
+                <p>En ingenieria química es frecuente trabajar con moles, especialmente cuando hay reacciones químicas:</p>
 
                 <div class="equation-box">
                     <div class="eq-number">(3.2)</div>
                     $$\frac{dn_{\text{sistema}}}{dt} = \sum_{j=1}^{N} \dot{n}_{\text{entrada},j} - \sum_{k=1}^{M} \dot{n}_{\text{salida},k} + \sum_{i=1}^{R} \dot{\xi}_i \cdot \nu_{\text{componente},i}$$
                     <div class="eq-desc">
                         <strong>Variables:</strong><br>
-                        $n_{\text{sistema}}$ - Numero total de moles en el sistema [mol]<br>
+                        $n_{\text{sistema}}$ - Número total de moles en el sistema [mol]<br>
                         $\dot{n}$ - Flujo molar [mol/s]<br>
-                        $\dot{\xi}_i$ - Velocidad de la reaccion $i$ [mol/s]<br>
-                        $\nu_{\text{componente},i}$ - Coeficiente estequiometrico (positivo si se genera, negativo si se consume)
+                        $\dot{\xi}_i$ - Velocidad de la reacción $i$ [mol/s]<br>
+                        $\nu_{\text{componente},i}$ - Coeficiente estequiométrico (positivo si se genera, negativo si se consume)
                     </div>
                 </div>
 
                 <!-- SECCION 4 -->
-                <h2 style="font-family: var(--font-serif); font-size: 1.8rem; margin: 2.5rem 0 1rem; color: var(--text-primary);">4. Clasificacion de los Balances de Masa</h2>
+                <h2 style="font-family: var(--font-serif); font-size: 1.8rem; margin: 2.5rem 0 1rem; color: var(--text-primary);">4. Clasificación de los Balances de Masa</h2>
 
-                <p>Los balances de masa se clasifican segun dos criterios fundamentales: <strong>el estado temporal del sistema</strong> y <strong>la presencia o ausencia de reaccion quimica</strong>.</p>
+                <p>Los balances de masa se clasifican según dos criterios fundamentales: <strong>el estado temporal del sistema</strong> y <strong>la presencia o ausencia de reacción química</strong>.</p>
 
-                <h3 style="font-family: var(--font-serif); font-size: 1.4rem; margin: 1.5rem 0 0.5rem; color: var(--text-primary);">4.1 Segun el Estado Temporal</h3>
+                <h3 style="font-family: var(--font-serif); font-size: 1.4rem; margin: 1.5rem 0 0.5rem; color: var(--text-primary);">4.1 Según el Estado Temporal</h3>
 
                 <h4 style="font-family: var(--font-serif); font-size: 1.2rem; margin: 1rem 0 0.5rem; color: #2E7D32;">A. Balance en Estado Estacionario (Steady State)</h4>
 
@@ -470,7 +467,7 @@
                 </div>
 
                 <div class="highlight-box-article success">
-                    <div class="label">Ecuacion del Balance Estacionario</div>
+                    <div class="label">Ecuación del Balance Estacionario</div>
                     $$\sum \dot{m}_{\text{entrada}} - \sum \dot{m}_{\text{salida}} + \dot{m}_{\text{generada}} - \dot{m}_{\text{consumida}} = 0$$
                 </div>
 
@@ -487,7 +484,7 @@
                     <div class="card-article">
                         <div class="card-icon" style="background: #FFF3E0; color: #E65100;">&#127981;</div>
                         <h4 style="margin-top: 0;">Ejemplo Practico</h4>
-                        <p style="color: #616161;">Una columna de destilacion operando en condiciones constantes, donde los flujos de destilado y fondos no varian con el tiempo.</p>
+                        <p style="color: #616161;">Una columna de destilación operando en condiciones constantes, donde los flujos de destilado y fondos no varian con el tiempo.</p>
                     </div>
                 </div>
 
@@ -501,7 +498,7 @@
                 </div>
 
                 <div class="highlight-box-article warning">
-                    <div class="label">Ecuacion del Balance Transitorio</div>
+                    <div class="label">Ecuación del Balance Transitorio</div>
                     $$\frac{dm_{\text{sistema}}}{dt} = \sum \dot{m}_{\text{entrada}} - \sum \dot{m}_{\text{salida}} + \dot{m}_{\text{generada}} - \dot{m}_{\text{consumida}}$$
                 </div>
 
@@ -522,11 +519,11 @@
                     </div>
                 </div>
 
-                <h3 style="font-family: var(--font-serif); font-size: 1.4rem; margin: 1.5rem 0 0.5rem; color: var(--text-primary);">4.2 Segun la Presencia de Reaccion Quimica</h3>
+                <h3 style="font-family: var(--font-serif); font-size: 1.4rem; margin: 1.5rem 0 0.5rem; color: var(--text-primary);">4.2 Según la Presencia de Reacción Química</h3>
 
-                <h4 style="font-family: var(--font-serif); font-size: 1.2rem; margin: 1rem 0 0.5rem; color: #0D47A1;">A. Balance Sin Reaccion Quimica (Balance de Masa Fisico)</h4>
+                <h4 style="font-family: var(--font-serif); font-size: 1.2rem; margin: 1rem 0 0.5rem; color: #0D47A1;">A. Balance Sin Reacción Química (Balance de Masa Físico)</h4>
 
-                <p>Cuando no ocurren transformaciones quimicas dentro del volumen de control, la masa de cada componente se conserva individualmente:</p>
+                <p>Cuando no ocurren transformaciones químicas dentro del volumen de control, la masa de cada componente se conserva individualmente:</p>
 
                 <div class="equation-box">
                     <div class="eq-number">(4.3)</div>
@@ -534,7 +531,7 @@
                 </div>
 
                 <div class="highlight-box-article">
-                    <div class="label">Ecuacion General - Sin Reaccion</div>
+                    <div class="label">Ecuación General - Sin Reacción</div>
                     $$\frac{dm_{\text{sistema}}}{dt} = \sum \dot{m}_{\text{entrada}} - \sum \dot{m}_{\text{salida}}$$
                 </div>
 
@@ -546,56 +543,56 @@
                 </div>
 
                 <div class="process-diagram">
-                    <h4 style="margin-top: 0; color: #0D47A1;">Aplicaciones en Petroquimica</h4>
+                    <h4 style="margin-top: 0; color: #0D47A1;">Aplicaciónes en Petroquímica</h4>
                     <div class="process-flow">
                         <div>
-                            <div class="process-node">Separaciones</div>
-                            <div class="process-label">Destilacion, absorcion</div>
+                            <div class="process-node">Separaciónes</div>
+                            <div class="process-label">Destilación, absorción</div>
                         </div>
                         <div class="process-arrow">&rarr;</div>
                         <div>
                             <div class="process-node">Mezcla</div>
-                            <div class="process-label">Corrientes multiples</div>
+                            <div class="process-label">Corrientes múltiples</div>
                         </div>
                         <div class="process-arrow">&rarr;</div>
                         <div>
                             <div class="process-node">Transporte</div>
-                            <div class="process-label">Tuberias, bombas</div>
+                            <div class="process-label">Tuberías, bombas</div>
                         </div>
                         <div class="process-arrow">&rarr;</div>
                         <div>
-                            <div class="process-node output">Intercambio Termico</div>
-                            <div class="process-label">Sin reaccion</div>
+                            <div class="process-node output">Intercambio Térmico</div>
+                            <div class="process-label">Sin reacción</div>
                         </div>
                     </div>
                 </div>
 
-                <h4 style="font-family: var(--font-serif); font-size: 1.2rem; margin: 1rem 0 0.5rem; color: #2E7D32;">B. Balance Con Reaccion Quimica</h4>
+                <h4 style="font-family: var(--font-serif); font-size: 1.2rem; margin: 1rem 0 0.5rem; color: #2E7D32;">B. Balance Con Reacción Química</h4>
 
-                <p>Cuando ocurren reacciones quimicas, la masa total se conserva, pero la masa de cada componente individual puede cambiar.</p>
+                <p>Cuando ocurren reacciones químicas, la masa total se conserva, pero la masa de cada componente individual puede cambiar.</p>
 
-                <p><strong>Para cada componente $i$ en una reaccion:</strong></p>
+                <p><strong>Para cada componente $i$ en una reacción:</strong></p>
 
                 <div class="equation-box">
                     <div class="eq-number">(4.5)</div>
                     $$\frac{dm_i}{dt} = \sum \dot{m}_{i,\text{entrada}} - \sum \dot{m}_{i,\text{salida}} + r_i \cdot V$$
                     <div class="eq-desc">
-                        $r_i$ - Velocidad de formacion del componente $i$ por unidad de volumen [kg/(m&#xb3;s)]<br>
+                        $r_i$ - Velocidad de formación del componente $i$ por unidad de volumen [kg/(m&#xb3;s)]<br>
                         $V$ - Volumen del reactor [m&#xb3;]
                     </div>
                 </div>
 
-                <p><strong>En terminos molares (mas comun en cinetica quimica):</strong></p>
+                <p><strong>En términos molares (mas comun en cinética química):</strong></p>
 
                 <div class="equation-box">
                     <div class="eq-number">(4.6)</div>
                     $$\frac{dn_i}{dt} = \sum \dot{n}_{i,\text{entrada}} - \sum \dot{n}_{i,\text{salida}} + R_i \cdot V$$
                     <div class="eq-desc">
-                        $R_i$ - Velocidad molar de formacion [mol/(m&#xb3;s)]
+                        $R_i$ - Velocidad molar de formación [mol/(m&#xb3;s)]
                     </div>
                 </div>
 
-                <p><strong>Relacion con la estequiometria:</strong> Para una reaccion general:</p>
+                <p><strong>Relacion con la estequiometria:</strong> Para una reacción general:</p>
 
                 <div class="equation-box">
                     <div class="eq-number">(4.7)</div>
@@ -606,30 +603,30 @@
                     <div class="eq-number">(4.8)</div>
                     $$\frac{\dot{n}_C - \dot{n}_{C,0}}{\nu_C} = \frac{\dot{n}_D - \dot{n}_{D,0}}{\nu_D} = -\frac{\dot{n}_A - \dot{n}_{A,0}}{\nu_A} = -\frac{\dot{n}_B - \dot{n}_{B,0}}{\nu_B} = \dot{\xi}$$
                     <div class="eq-desc">
-                        $\dot{\xi}$ - Velocidad de reaccion (extension de reaccion por unidad de tiempo)
+                        $\dot{\xi}$ - Velocidad de reacción (extensión de reacción por unidad de tiempo)
                     </div>
                 </div>
 
                 <div class="process-diagram">
-                    <h4 style="margin-top: 0; color: #2E7D32;">Aplicaciones en Petroquimica</h4>
+                    <h4 style="margin-top: 0; color: #2E7D32;">Aplicaciónes en Petroquímica</h4>
                     <div class="process-flow">
                         <div>
                             <div class="process-node output">FCC</div>
-                            <div class="process-label">Craqueo catalitico</div>
+                            <div class="process-label">Craqueo catalítico</div>
                         </div>
                         <div class="process-arrow">&rarr;</div>
                         <div>
                             <div class="process-node output">Reforming</div>
-                            <div class="process-label">Catalitico</div>
+                            <div class="process-label">Catalítico</div>
                         </div>
                         <div class="process-arrow">&rarr;</div>
                         <div>
-                            <div class="process-node output">Pirolisis</div>
-                            <div class="process-label">Produccion de etileno</div>
+                            <div class="process-node output">Pirólisis</div>
+                            <div class="process-label">Producción de etileno</div>
                         </div>
                         <div class="process-arrow">&rarr;</div>
                         <div>
-                            <div class="process-node output">Polimerizacion</div>
+                            <div class="process-node output">Polimerización</div>
                             <div class="process-label">PE, PP</div>
                         </div>
                         <div class="process-arrow">&rarr;</div>
@@ -650,20 +647,20 @@
                         <thead>
                             <tr>
                                 <th></th>
-                                <th style="background: #2E7D32;">Sin Reaccion Quimica</th>
-                                <th style="background: #E65100;">Con Reaccion Quimica</th>
+                                <th style="background: #2E7D32;">Sin Reacción Química</th>
+                                <th style="background: #E65100;">Con Reacción Química</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td><strong>Estado Estacionario</strong></td>
-                                <td><strong>Tipo I:</strong> Balance fisico estacionario</td>
-                                <td><strong>Tipo II:</strong> Balance con reaccion estacionario</td>
+                                <td><strong>Tipo I:</strong> Balance físico estacionario</td>
+                                <td><strong>Tipo II:</strong> Balance con reacción estacionario</td>
                             </tr>
                             <tr>
                                 <td><strong>Estado Transitorio</strong></td>
-                                <td><strong>Tipo III:</strong> Balance fisico transitorio</td>
-                                <td><strong>Tipo IV:</strong> Balance con reaccion transitorio</td>
+                                <td><strong>Tipo III:</strong> Balance físico transitorio</td>
+                                <td><strong>Tipo IV:</strong> Balance con reacción transitorio</td>
                             </tr>
                         </tbody>
                     </table>
@@ -672,12 +669,12 @@
                 <div class="matrix-grid">
                     <div class="matrix-cell">
                         <span class="type-label">TIPO I</span>
-                        <h4 style="margin-top: 0;">Balance Fisico - Estado Estacionario</h4>
+                        <h4 style="margin-top: 0;">Balance Físico - Estado Estacionario</h4>
                         <div class="equation-box" style="margin: 16px 0; padding: 16px;">
                             $$\sum \dot{m}_{\text{entrada}} = \sum \dot{m}_{\text{salida}}$$
                         </div>
                         <p style="font-size: 0.9rem; color: #616161;">
-                            <strong>Ejemplo:</strong> Balance de masa en una columna de destilacion binaria.
+                            <strong>Ejemplo:</strong> Balance de masa en una columna de destilación binaria.
                         </p>
                         <div class="equation-box" style="margin: 12px 0; padding: 12px; background: white;">
                             $$F = D + B$$
@@ -687,7 +684,7 @@
 
                     <div class="matrix-cell" style="border-top-color: #E65100;">
                         <span class="type-label" style="background: #E65100;">TIPO II</span>
-                        <h4 style="margin-top: 0;">Balance con Reaccion - Estado Estacionario</h4>
+                        <h4 style="margin-top: 0;">Balance con Reacción - Estado Estacionario</h4>
                         <div class="equation-box" style="margin: 16px 0; padding: 16px;">
                             $$\sum \dot{n}_{i,\text{entrada}} - \sum \dot{n}_{i,\text{salida}} + R_i \cdot V = 0$$
                         </div>
@@ -702,12 +699,12 @@
 
                     <div class="matrix-cell" style="border-top-color: #1565C0;">
                         <span class="type-label" style="background: #1565C0;">TIPO III</span>
-                        <h4 style="margin-top: 0;">Balance Fisico - Estado Transitorio</h4>
+                        <h4 style="margin-top: 0;">Balance Físico - Estado Transitorio</h4>
                         <div class="equation-box" style="margin: 16px 0; padding: 16px;">
                             $$\frac{dm}{dt} = \sum \dot{m}_{\text{entrada}} - \sum \dot{m}_{\text{salida}}$$
                         </div>
                         <p style="font-size: 0.9rem; color: #616161;">
-                            <strong>Ejemplo:</strong> Llenado de un tanque esferico de radio $R$.
+                            <strong>Ejemplo:</strong> Llenado de un tanque esférico de radio $R$.
                         </p>
                         <div class="equation-box" style="margin: 12px 0; padding: 12px; background: white;">
                             $$\rho \cdot \pi \cdot (2Rh - h^2) \cdot \frac{dh}{dt} = \dot{m}_{\text{entrada}} - \dot{m}_{\text{salida}}$$
@@ -716,12 +713,12 @@
 
                     <div class="matrix-cell" style="border-top-color: #C62828;">
                         <span class="type-label" style="background: #C62828;">TIPO IV</span>
-                        <h4 style="margin-top: 0;">Balance con Reaccion - Estado Transitorio</h4>
+                        <h4 style="margin-top: 0;">Balance con Reacción - Estado Transitorio</h4>
                         <div class="equation-box" style="margin: 16px 0; padding: 16px;">
                             $$\frac{dn_i}{dt} = \sum \dot{n}_{i,\text{entrada}} - \sum \dot{n}_{i,\text{salida}} + R_i \cdot V$$
                         </div>
                         <p style="font-size: 0.9rem; color: #616161;">
-                            <strong>Ejemplo:</strong> Reactor batch para produccion de polimeros.
+                            <strong>Ejemplo:</strong> Reactor batch para producción de polímeros.
                         </p>
                         <div class="equation-box" style="margin: 12px 0; padding: 12px; background: white;">
                             $$\frac{dC_A}{dt} = -k \cdot C_A^n$$
@@ -731,9 +728,9 @@
                 </div>
 
                 <!-- SECCION 6 -->
-                <h2 style="font-family: var(--font-serif); font-size: 1.8rem; margin: 2.5rem 0 1rem; color: var(--text-primary);">6. Balance Diferencial (Forma Microscopica)</h2>
+                <h2 style="font-family: var(--font-serif); font-size: 1.8rem; margin: 2.5rem 0 1rem; color: var(--text-primary);">6. Balance Diferencial (Forma Microscópica)</h2>
 
-                <p>Para un analisis detallado de gradientes dentro del equipo, se utiliza la <strong>ecuacion de continuidad</strong> en forma diferencial, derivada aplicando el balance a un volumen diferencial $dV = dx \cdot dy \cdot dz$:</p>
+                <p>Para un análisis detallado de gradientes dentro del equipo, se utiliza la <strong>ecuación de continuidad</strong> en forma diferencial, derivada aplicando el balance a un volumen diferencial $dV = dx \cdot dy \cdot dz$:</p>
 
                 <h3 style="font-family: var(--font-serif); font-size: 1.4rem; margin: 1.5rem 0 0.5rem; color: var(--text-primary);">6.1 Forma Vectorial</h3>
 
@@ -742,7 +739,7 @@
                     $$\frac{\partial \rho}{\partial t} + \nabla \cdot (\rho \vec{v}) = r$$
                     <div class="eq-desc">
                         $\rho$ - Densidad del fluido [kg/m&#xb3;] &nbsp;|&nbsp; $\vec{v}$ - Vector velocidad [m/s]<br>
-                        $r$ - Tasa de generacion de masa por unidad de volumen [kg/(m&#xb3;s)] &nbsp;|&nbsp; $\nabla \cdot$ - Divergencia
+                        $r$ - Tasa de generación de masa por unidad de volumen [kg/(m&#xb3;s)] &nbsp;|&nbsp; $\nabla \cdot$ - Divergencia
                     </div>
                 </div>
 
@@ -759,7 +756,7 @@
                     <div class="card-article">
                         <div class="card-icon" style="background: #E3F2FD; color: #0D47A1;">&#128167;</div>
                         <h4 style="margin-top: 0;">Fluido Incompresible</h4>
-                        <p style="color: #616161; margin-bottom: 12px;">$\rho = \text{constante}$, sin reaccion:</p>
+                        <p style="color: #616161; margin-bottom: 12px;">$\rho = \text{constante}$, sin reacción:</p>
                         <div class="equation-box" style="padding: 12px; margin: 0;">
                             $$\nabla \cdot \vec{v} = 0$$
                             $$\frac{\partial v_x}{\partial x} + \frac{\partial v_y}{\partial y} + \frac{\partial v_z}{\partial z} = 0$$
@@ -776,9 +773,9 @@
                 </div>
 
                 <!-- SECCION 7 -->
-                <h2 style="font-family: var(--font-serif); font-size: 1.8rem; margin: 2.5rem 0 1rem; color: var(--text-primary);">7. Estrategia Metodologica para Resolver Problemas</h2>
+                <h2 style="font-family: var(--font-serif); font-size: 1.8rem; margin: 2.5rem 0 1rem; color: var(--text-primary);">7. Estrategia Métodologica para Resolver Problemas</h2>
 
-                <p>Para los estudiantes de Ingenieria Petroquimica, recomiendo el siguiente procedimiento sistematico:</p>
+                <p>Para los estudiantes de Ingeniería Petroquímica, recomiendo el siguiente procedimiento sistemático:</p>
 
                 <div class="steps">
                     <div class="step">
@@ -792,13 +789,13 @@
                         <div class="step-number"></div>
                         <div class="step-content">
                             <h4 style="margin-top: 0;">Recopilar Informacion</h4>
-                            <p style="margin: 0; color: #616161;">Flujos conocidos y desconocidos, composiciones de las corrientes, condiciones de operacion (T, P), datos cineticos (si hay reaccion).</p>
+                            <p style="margin: 0; color: #616161;">Flujos conocidos y desconocidos, composiciones de las corrientes, condiciones de operación (T, P), datos cinéticos (si hay reacción).</p>
                         </div>
                     </div>
                     <div class="step">
                         <div class="step-number"></div>
                         <div class="step-content">
-                            <h4 style="margin-top: 0;">Plantear las Ecuaciones</h4>
+                            <h4 style="margin-top: 0;">Plantear las Ecuaciónes</h4>
                             <p style="margin: 0; color: #616161;">Balance total de masa, balances para cada componente independiente, relaciones adicionales (estequiometria, equilibrio, restricciones).</p>
                         </div>
                     </div>
@@ -806,27 +803,27 @@
                         <div class="step-number"></div>
                         <div class="step-content">
                             <h4 style="margin-top: 0;">Verificar Grados de Libertad</h4>
-                            <p style="margin: 0; color: #616161;">Numero de incognitas vs. numero de ecuaciones independientes. Debe cumplirse: $N_{\text{ecuaciones}} \geq N_{\text{incognitas}}$</p>
+                            <p style="margin: 0; color: #616161;">Número de incógnitas vs. número de ecuaciones independientes. Debe cumplirse: $N_{\text{ecuaciones}} \geq N_{\text{incógnitas}}$</p>
                         </div>
                     </div>
                     <div class="step">
                         <div class="step-number"></div>
                         <div class="step-content">
                             <h4 style="margin-top: 0;">Resolver el Sistema</h4>
-                            <p style="margin: 0; color: #616161;">Metodos algebraicos (estacionario) o metodos numericos/diferenciales (transitorio).</p>
+                            <p style="margin: 0; color: #616161;">Métodos algebraicos (estacionario) o métodos numéricos/diferenciales (transitorio).</p>
                         </div>
                     </div>
                     <div class="step">
                         <div class="step-number"></div>
                         <div class="step-content">
                             <h4 style="margin-top: 0;">Verificar y Validar</h4>
-                            <p style="margin: 0; color: #616161;">Comprobar que se cumpla la conservacion de la masa total. Analizar si los resultados tienen sentido fisico (signos, magnitudes).</p>
+                            <p style="margin: 0; color: #616161;">Comprobar que se cumpla la conservación de la masa total. Analizar si los resultados tienen sentido físico (signos, magnitudes).</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- SECCION 8 -->
-                <h2 style="font-family: var(--font-serif); font-size: 1.8rem; margin: 2.5rem 0 1rem; color: var(--text-primary);">8. Aplicaciones Practicas en la Industria Petroquimica</h2>
+                <h2 style="font-family: var(--font-serif); font-size: 1.8rem; margin: 2.5rem 0 1rem; color: var(--text-primary);">8. Aplicaciónes Prácticas en la Industria Petroquímica</h2>
 
                 <div class="table-wrap">
                     <table class="article-table">
@@ -839,27 +836,27 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Separacion de crudo en atmosfera</td>
-                                <td>Tipo I (fisico, estacionario)</td>
+                                <td>Separación de crudo en atmósfera</td>
+                                <td>Tipo I (físico, estacionario)</td>
                                 <td>Media</td>
                             </tr>
                             <tr>
                                 <td>Reactor FCC</td>
-                                <td>Tipo II (con reaccion, estacionario)</td>
+                                <td>Tipo II (con reacción, estacionario)</td>
                                 <td>Alta</td>
                             </tr>
                             <tr>
                                 <td>Arranque de unidad de HDS</td>
-                                <td>Tipo IV (con reaccion, transitorio)</td>
+                                <td>Tipo IV (con reacción, transitorio)</td>
                                 <td>Muy alta</td>
                             </tr>
                             <tr>
                                 <td>Almacenamiento de productos</td>
-                                <td>Tipo III (fisico, transitorio)</td>
+                                <td>Tipo III (físico, transitorio)</td>
                                 <td>Baja</td>
                             </tr>
                             <tr>
-                                <td>Produccion de polietileno (Slurry)</td>
+                                <td>Producción de polietileno (Slurry)</td>
                                 <td>Tipo II / IV</td>
                                 <td>Alta</td>
                             </tr>
@@ -871,9 +868,9 @@
                 <h2 style="font-family: var(--font-serif); font-size: 1.8rem; margin: 2.5rem 0 1rem; color: var(--text-primary);">9. Conclusion</h2>
 
                 <div class="highlight-box-article success">
-                    <div class="label">Reflexion Final</div>
-                    <p>El dominio de los balances de masa constituye la <strong>piedra angular</strong> del analisis de procesos en ingenieria petroquimica. La correcta clasificacion del sistema -segun su estado temporal y la presencia de reacciones quimicas- permite seleccionar las herramientas matematicas apropiadas y simplificar el analisis sin perder rigor.</p>
-                    <p style="margin-bottom: 0; margin-top: 12px;">Para los futuros ingenieros de la <strong>Universidad Venezolana de los Hidrocarburos</strong>, comprender estos fundamentos no es solo un requisito academico, sino una <strong>competencia esencial</strong> para el diseno, operacion y optimizacion de las complejas unidades de procesamiento que caracterizan a nuestra industria petrolera y petroquimica.</p>
+                    <div class="label">Reflexión Final</div>
+                    <p>El dominio de los balances de masa constituye la <strong>piedra angular</strong> del análisis de procesos en ingenieria petroquímica. La correcta clasificación del sistema -según su estado temporal y la presencia de reacciones químicas- permite seleccionar las herramientas matemáticas apropiadas y simplificar el análisis sin perder rigor.</p>
+                    <p style="margin-bottom: 0; margin-top: 12px;">Para los futuros ingenieros de la <strong>Universidad Venezolana de los Hidrocarburos</strong>, comprender estos fundamentos no es solo un requisito academico, sino una <strong>competencia esencial</strong> para el diseño, operación y optimización de las complejas unidades de procesamiento que caracterizan a nuestra industria petrolera y petroquímica.</p>
                 </div>
 
                 <h3 style="font-family: var(--font-serif); font-size: 1.4rem; margin: 1.5rem 0 0.5rem; color: var(--text-primary);">Referencias Sugeridas</h3>
@@ -888,7 +885,7 @@
                 </blockquote>
 
                 <p style="margin-top: 2rem; color: var(--text-muted); font-size: 0.95rem;">
-                    &iquest;Tienes dudas sobre balances de masa? <a href="recurso-petroquimica-guia-balances.html" style="color: var(--accent);">Deja un comentario en la guia</a> o unete a la conversacion en cualquier recurso. Este blog es de ustedes.
+                    &iquest;Tienes dudas sobre balances de masa? <a href="recurso-petroquímica-guía-balances.html" style="color: var(--accent);">Deja un comentario en la guía</a> o unete a la conversación en cualquier recurso. Este blog es de ustedes.
                 </p>
             </div>
         </div>
@@ -898,11 +895,11 @@
         <div class="container">
             <div class="section-header fade-in-up">
                 <h2>&#128172; Comentarios</h2>
-                <p>&iquest;Que te parecio el articulo? &iquest;Tienes alguna duda sobre balances de masa? Comparte aqui.</p>
+                <p>&iquest;Que te parecio el artículo? &iquest;Tienes alguna duda sobre balances de masa? Comparte aqui.</p>
             </div>
             <div class="comments-wrapper fade-in-up">
                 <script src="https://giscus.app/client.js"
-                        data-repo="poloz-z/blog-petroquimica-uvh"
+                        data-repo="poloz-z/blog-petroquímica-uvh"
                         data-repo-id="R_kgDOSkGGrg"
                         data-category="General"
                         data-category-id="DIC_kwDOSkGGrs4C9jQf"
@@ -923,7 +920,7 @@
 
     <footer class="footer">
         <div class="container">
-            <p> UVH - Ingenieria Petroquimica. Todos los derechos reservados.</p>
+            <p> UVH - Ingeniería Petroquímica. Todos los derechos reservados.</p>
         </div>
     </footer>
 
