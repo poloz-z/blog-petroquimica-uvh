@@ -17,6 +17,18 @@
   --font-serif: 'Playfair Display', serif;
   --font-sans: 'Inter', sans-serif;
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --font-serif: 'Playfair Display', serif;
+  --font-sans: 'Inter', sans-serif;
+  --text-primary: #1A237E;      /* Un azul marino oscuro para títulos */
+  --text-secondary: #5C6BC0;    /* Un azul grisáceo para fechas/subtítulos */
+  --text-muted: #757575;         /* Gris para textos secundarios */
+  --accent: #0D47A1;             /* Azul eléctrico para enlaces */
+  --bg-primary: #FFFFFF;
+}
+body {
+    font-family: var(--font-sans);
+    color: #333333;
+    line-height: 1.6;
 }
 
 /* ========== RESET ========== */
@@ -859,22 +871,4 @@ blockquote {
   .page-header {
     padding: 7rem 0 3rem;
   }
-:root {
-    --font-serif: 'Playfair Display', serif;
-    --font-sans: 'Inter', sans-serif;
-    --text-primary: #1A237E;      /* Un azul marino oscuro para títulos */
-    --text-secondary: #5C6BC0;    /* Un azul grisáceo para fechas/subtítulos */
-    --text-muted: #757575;         /* Gris para textos secundarios */
-    --accent: #0D47A1;             /* Azul eléctrico para enlaces */
-    
-    /* Configuración de fondo general del sitio si es necesario */
-    --bg-primary: #FFFFFF;
-}
-/* Regla general para que el cuerpo del texto use la fuente Inter */
-body {
-    font-family: var(--font-sans);
-    color: #333333;
-    line-height: 1.6;
-}
-  
 }
