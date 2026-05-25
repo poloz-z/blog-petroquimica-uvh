@@ -1,33 +1,40 @@
 /* ========== VARIABLES ========== */
 :root {
-  --bg-primary: #ffffff;
-  --bg-secondary: #f5f1ef;
-  --bg-card: #ffffff;
-  --bg-gradient-start: #ffffff;
-  --bg-gradient-end: #f5f1ef;
-  --text-primary: #1a1a1a;
-  --text-secondary: #5a4a45;
-  --text-muted: #8a7a75;
-  --accent: #d72638;
-  --accent-hover: #7a0c17;
-  --accent-dim: rgba(215, 38, 56, 0.08);
-  --border: #d9c7c2;
-  --shadow: rgba(122, 12, 23, 0.06);
-  --shadow-hover: rgba(122, 12, 23, 0.12);
+  /* Nueva paleta de colores */
+  --parchment: #F3F2ED;
+  --porcelain: #FBFCF8;
+  --porcelain-2: #F8F9F3;
+  --rich-mahogany: #35060D;
+  --graphite: #2F2B2A;
+  --porcelain-3: #F7F6F1;
+  --dust-grey: #E5DCDA;
+  --charcoal-brown: #40403E;
+  --dark-amaranth: #771030;
+  --black: #000000;
+
+  /* Mapeo a variables funcionales */
+  --bg-primary: var(--porcelain);
+  --bg-secondary: var(--parchment);
+  --bg-card: var(--porcelain);
+  --bg-gradient-start: var(--porcelain);
+  --bg-gradient-end: var(--parchment);
+  --text-primary: var(--rich-mahogany);
+  --text-secondary: var(--charcoal-brown);
+  --text-muted: var(--graphite);
+  --accent: var(--dark-amaranth);
+  --accent-hover: var(--rich-mahogany);
+  --accent-dim: rgba(119, 16, 48, 0.08);
+  --border: var(--dust-grey);
+  --shadow: rgba(53, 6, 13, 0.06);
+  --shadow-hover: rgba(53, 6, 13, 0.12);
   --font-serif: 'Playfair Display', serif;
   --font-sans: 'Inter', sans-serif;
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  --font-serif: 'Playfair Display', serif;
-  --font-sans: 'Inter', sans-serif;
-  --text-primary: #1A237E;      /* Un azul marino oscuro para títulos */
-  --text-secondary: #5C6BC0;    /* Un azul grisáceo para fechas/subtítulos */
-  --text-muted: #757575;         /* Gris para textos secundarios */
-  --accent: #0D47A1;             /* Azul eléctrico para enlaces */
-  --bg-primary: #FFFFFF;
 }
+
 body {
     font-family: var(--font-sans);
-    color: #333333;
+    color: var(--graphite);
     line-height: 1.6;
 }
 
@@ -66,7 +73,7 @@ body {
   width: 100%;
   z-index: 1000;
   padding: 1.2rem 0;
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(251, 252, 248, 0.92);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
@@ -157,7 +164,7 @@ body {
   position: relative;
   overflow: hidden;
   padding-top: 80px;
-  background: linear-gradient(135deg, #ffffff 0%, #f5f1ef 50%, #ffffff 100%);
+  background: linear-gradient(135deg, var(--porcelain) 0%, var(--parchment) 50%, var(--porcelain) 100%);
 }
 
 .hero-bg {
@@ -166,7 +173,7 @@ body {
   left: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle at 50% 50%, rgba(215, 38, 56, 0.06) 0%, transparent 50%);
+  background: radial-gradient(circle at 50% 50%, rgba(119, 16, 48, 0.06) 0%, transparent 50%);
   animation: pulse 8s ease-in-out infinite;
   pointer-events: none;
 }
@@ -226,7 +233,7 @@ body {
   display: inline-block;
   padding: 1rem 2.5rem;
   background: var(--accent);
-  color: #ffffff;
+  color: var(--porcelain);
   text-decoration: none;
   font-weight: 600;
   border-radius: 50px;
@@ -279,7 +286,7 @@ body {
 /* ========== PAGE HEADER ========== */
 .page-header {
   padding: 10rem 0 4rem;
-  background: linear-gradient(135deg, #f5f1ef 0%, #ffffff 100%);
+  background: linear-gradient(135deg, var(--parchment) 0%, var(--porcelain) 100%);
   border-bottom: 1px solid var(--border);
 }
 
@@ -345,7 +352,7 @@ body {
 
 .section-cta {
   text-align: center;
-  background: radial-gradient(ellipse at center, rgba(215, 38, 56, 0.04) 0%, transparent 70%);
+  background: radial-gradient(ellipse at center, rgba(119, 16, 48, 0.04) 0%, transparent 70%);
 }
 
 .section-recursos {
@@ -510,7 +517,7 @@ body {
 
 .filter-btn.active {
   background: var(--accent);
-  color: #ffffff;
+  color: var(--porcelain);
   border-color: var(--accent);
 }
 
@@ -666,7 +673,7 @@ body {
   gap: 0.5rem;
   padding: 0.5rem 1rem;
   background: var(--accent);
-  color: #ffffff;
+  color: var(--porcelain);
   text-decoration: none;
   border-radius: 8px;
   font-size: 0.85rem;
@@ -681,7 +688,7 @@ body {
 .pdf-iframe-container {
   height: 70vh;
   min-height: 500px;
-  background: #f5f1ef;
+  background: var(--parchment);
 }
 
 .pdf-iframe-container iframe {
@@ -782,16 +789,6 @@ blockquote {
 .signature strong {
   color: var(--text-primary);
   font-size: 1.1rem;
-}
-
-/* ========== FOOTER ========== */
-.footer {
-  padding: 2rem 0;
-  text-align: center;
-  border-top: 1px solid var(--border);
-  color: var(--text-muted);
-  font-size: 0.9rem;
-  background: var(--bg-secondary);
 }
 
 /* ========== ANIMATIONS ========== */

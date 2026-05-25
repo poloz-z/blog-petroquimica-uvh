@@ -9,25 +9,53 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-    <!-- KaTeX for Math Rendering -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.47/dist/katex.min.css" integrity="sha384-nH0MfJ44wi1dd7w6jinlyBgljjS8EJAh2JBoRad8a3VDw2K69vfaaqm4WnR+gXtA" crossorigin="anonymous">
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.47/dist/katex.min.js" integrity="sha384-CwjPRVHTvLiMBFjEoij+QZViMV5rhTOIp7CJzl24JEqpRDA1sJFHVXXLURktbYYp" crossorigin="anonymous"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.47/dist/contrib/auto-render.min.js" integrity="sha384-bjyGPfbij8/NDKJhSGZNP/khQVgtHUE5exjm4Ydllo42FwIgYsdLO2lXGmRBf5Mz" crossorigin="anonymous"
-        onload="renderMathInElement(document.body, {
-            delimiters: [
-                {left: '$$', right: '$$', display: true},
-                {left: '$', right: '$', display: false},
-                {left: '\\(', right: '\\)', display: false},
-                {left: '\\[', right: '\\]', display: true}
-            ],
-            throwOnError: false
-        });"></script>
+    <!-- MathJax v4 Configuration -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true,
+                processEnvironments: true,
+                packages: {'[+]': ['noerrors', 'noundefined']},
+                macros: {
+                    "dd": "{\,\mathrm{d}}"
+                }
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+                ignoreHtmlClass: 'tex2jax_ignore',
+                processHtmlClass: 'tex2jax_process'
+            },
+            startup: {
+                pageReady: () => {
+                    return MathJax.startup.defaultPageReady().then(() => {
+                        console.log('MathJax v4 renderizado correctamente');
+                        document.body.classList.add('mathjax-loaded');
+                    });
+                }
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"></script>
 
     <style>
-        /* Estilos adicionales para ecuaciones y componentes del artículo */
+        /* Estilos adicionales para ecuaciones y componentes del artículo - Paleta nueva */
+        :root {
+          --parchment: #F3F2ED;
+          --porcelain: #FBFCF8;
+          --porcelain-2: #F8F9F3;
+          --rich-mahogany: #35060D;
+          --graphite: #2F2B2A;
+          --porcelain-3: #F7F6F1;
+          --dust-grey: #E5DCDA;
+          --charcoal-brown: #40403E;
+          --dark-amaranth: #771030;
+        }
+
         .equation-box {
-            background: #F5F5F5;
-            border: 2px solid #E0E0E0;
+            background: var(--porcelain-3);
+            border: 2px solid var(--dust-grey);
             border-radius: 12px;
             padding: 24px 32px;
             margin: 24px 0;
@@ -37,7 +65,7 @@
 
         .equation-box .eq-number {
             float: right;
-            color: #616161;
+            color: var(--charcoal-brown);
             font-size: 0.85rem;
             font-weight: 600;
         }
@@ -46,14 +74,14 @@
             text-align: left;
             margin-top: 12px;
             font-size: 0.9rem;
-            color: #616161;
-            border-top: 1px dashed #E0E0E0;
+            color: var(--charcoal-brown);
+            border-top: 1px dashed var(--dust-grey);
             padding-top: 8px;
         }
 
         .highlight-box-article {
-            background: linear-gradient(135deg, #E3F2FD 0%, #BBDEFB 100%);
-            border-left: 5px solid #0D47A1;
+            background: linear-gradient(135deg, var(--porcelain-2) 0%, var(--parchment) 100%);
+            border-left: 5px solid var(--dark-amaranth);
             padding: 24px 28px;
             margin: 24px 0;
             border-radius: 0 12px 12px 0;
@@ -79,7 +107,7 @@
             text-transform: uppercase;
             letter-spacing: 1.5px;
             font-weight: 700;
-            color: #0D47A1;
+            color: var(--dark-amaranth);
             margin-bottom: 8px;
         }
 
@@ -91,19 +119,19 @@
             overflow-x: auto;
             margin: 24px 0;
             border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 20px rgba(53, 6, 13, 0.08);
         }
 
         .article-table {
             width: 100%;
             border-collapse: collapse;
-            background: #FFFFFF;
+            background: var(--porcelain);
             font-size: 0.95rem;
         }
 
         .article-table th {
-            background: #0D47A1;
-            color: white;
+            background: var(--rich-mahogany);
+            color: var(--porcelain);
             padding: 14px 16px;
             text-align: left;
             font-weight: 600;
@@ -114,11 +142,11 @@
 
         .article-table td {
             padding: 14px 16px;
-            border-bottom: 1px solid #E0E0E0;
+            border-bottom: 1px solid var(--dust-grey);
             vertical-align: top;
         }
 
-        .article-table tr:hover td { background: #F5F5F5; }
+        .article-table tr:hover td { background: var(--porcelain-3); }
         .article-table tr:last-child td { border-bottom: none; }
 
         .cards-grid-article {
@@ -129,17 +157,17 @@
         }
 
         .card-article {
-            background: #FFFFFF;
+            background: var(--porcelain);
             border-radius: 16px;
             padding: 28px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 20px rgba(53, 6, 13, 0.08);
             transition: all 0.3s ease;
-            border: 1px solid #E0E0E0;
+            border: 1px solid var(--dust-grey);
         }
 
         .card-article:hover {
             transform: translateY(-4px);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+            box-shadow: 0 8px 30px rgba(53, 6, 13, 0.12);
         }
 
         .card-article .card-icon {
@@ -154,11 +182,11 @@
         }
 
         .process-diagram {
-            background: #FFFFFF;
+            background: var(--porcelain);
             border-radius: 16px;
             padding: 32px;
             margin: 24px 0;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 20px rgba(53, 6, 13, 0.08);
             text-align: center;
         }
 
@@ -172,29 +200,29 @@
         }
 
         .process-node {
-            background: linear-gradient(135deg, #0D47A1 0%, #1565C0 100%);
-            color: white;
+            background: linear-gradient(135deg, var(--rich-mahogany) 0%, var(--dark-amaranth) 100%);
+            color: var(--porcelain);
             padding: 16px 24px;
             border-radius: 12px;
             font-weight: 600;
             min-width: 120px;
-            box-shadow: 0 4px 12px rgba(13,71,161,0.3);
+            box-shadow: 0 4px 12px rgba(53, 6, 13, 0.3);
         }
 
         .process-node.output {
             background: linear-gradient(135deg, #2E7D32 0%, #43A047 100%);
-            box-shadow: 0 4px 12px rgba(46,125,50,0.3);
+            box-shadow: 0 4px 12px rgba(46, 125, 50, 0.3);
         }
 
         .process-arrow {
             font-size: 1.5rem;
-            color: #0D47A1;
+            color: var(--rich-mahogany);
             font-weight: bold;
         }
 
         .process-label {
             font-size: 0.85rem;
-            color: #616161;
+            color: var(--charcoal-brown);
             margin-top: 4px;
         }
 
@@ -206,11 +234,11 @@
         }
 
         .matrix-cell {
-            background: #FFFFFF;
+            background: var(--porcelain);
             border-radius: 16px;
             padding: 28px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            border-top: 4px solid #0D47A1;
+            box-shadow: 0 4px 20px rgba(53, 6, 13, 0.08);
+            border-top: 4px solid var(--dark-amaranth);
             transition: all 0.3s;
         }
 
@@ -218,8 +246,8 @@
 
         .matrix-cell .type-label {
             display: inline-block;
-            background: #0D47A1;
-            color: white;
+            background: var(--dark-amaranth);
+            color: var(--porcelain);
             padding: 4px 12px;
             border-radius: 20px;
             font-size: 0.8rem;
@@ -244,32 +272,66 @@
             flex-shrink: 0;
             width: 48px;
             height: 48px;
-            background: linear-gradient(135deg, #0D47A1 0%, #1565C0 100%);
-            color: white;
+            background: linear-gradient(135deg, var(--rich-mahogany) 0%, var(--dark-amaranth) 100%);
+            color: var(--porcelain);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 700;
             font-size: 1.2rem;
-            box-shadow: 0 4px 12px rgba(13,71,161,0.3);
+            box-shadow: 0 4px 12px rgba(53, 6, 13, 0.3);
         }
 
         .step-number::before { content: counter(step); }
 
         .step-content {
-            background: #FFFFFF;
+            background: var(--porcelain);
             border-radius: 12px;
             padding: 20px 24px;
             flex: 1;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            border: 1px solid #E0E0E0;
+            box-shadow: 0 4px 20px rgba(53, 6, 13, 0.08);
+            border: 1px solid var(--dust-grey);
         }
 
         .step-content h4 { margin-top: 0; margin-bottom: 8px; }
 
-        .katex { font-size: 1.1em; }
-        .katex-display { margin: 1.5em 0; overflow-x: auto; }
+        /* Fallback cuando MathJax no carga - mostrar ecuaciones como texto formateado */
+        body:not(.mathjax-loaded) .equation-box {
+            font-family: 'Courier New', 'Consolas', monospace;
+            text-align: left;
+        }
+
+        body:not(.mathjax-loaded) .equation-box mjx-container {
+            display: none;
+        }
+
+        body:not(.mathjax-loaded) .equation-box .math-fallback {
+            display: block !important;
+            white-space: pre-wrap;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: var(--graphite);
+            background: var(--porcelain-2);
+            padding: 12px;
+            border-radius: 8px;
+            margin: 8px 0;
+        }
+
+        .math-fallback {
+            display: none;
+        }
+
+        /* Asegurar visibilidad del contenido */
+        .article-content {
+            opacity: 1 !important;
+            transform: none !important;
+        }
+
+        .article-content .fade-in-up {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
         @media (max-width: 768px) {
             .matrix-grid { grid-template-columns: 1fr; }
@@ -317,7 +379,7 @@
 
     <section class="section">
         <div class="container">
-            <div class="content-block fade-in-up" style="max-width: 800px; margin: 0 auto;">
+            <div class="content-block fade-in-up article-content" style="max-width: 800px; margin: 0 auto;">
 
                 <p class="lead">El dominio de los <strong>balances de masa</strong> constituye la piedra angular del análisis de procesos en ingenieria petroquímica. Este artículo desarrolla los principios de conservación, la conceptualizacion de sistemas, la formulacion general del balance y su clasificación según el estado temporal y la presencia de reacción química, con todas las ecuaciones matemáticas que los estudiantes de la UVH necesitan dominar.</p>
 
@@ -338,6 +400,7 @@
                 <div class="equation-box">
                     <div class="eq-number">(1.1)</div>
                     $$\text{Masa que entra} - \text{Masa que sale} + \text{Masa generada} - \text{Masa consumida} = \text{Acumulacion de masa}$$
+                    <div class="math-fallback">Masa que entra - Masa que sale + Masa generada - Masa consumida = Acumulación de masa</div>
                     <div class="eq-desc">
                         Esta es la <strong>forma general del balance de masa</strong>, valida tanto para sistemas macroscopicos como para el análisis de un punto infinitesimal del fluido.
                     </div>
@@ -350,6 +413,7 @@
                 <div class="equation-box">
                     <div class="eq-number">(1.2)</div>
                     $$\Delta E = Q - W$$
+                    <div class="math-fallback">ΔE = Q - W</div>
                     <div class="eq-desc">
                         Donde $Q$ es el calor transferido al sistema y $W$ es el trabajo realizado por el sistema.
                     </div>
@@ -405,14 +469,14 @@
 
                 <div class="cards-grid-article">
                     <div class="card-article">
-                        <div class="card-icon" style="background: #E3F2FD; color: #0D47A1;">&#128230;</div>
+                        <div class="card-icon" style="background: var(--porcelain-2); color: var(--dark-amaranth);">&#128230;</div>
                         <h4 style="margin-top: 0;">Volumen de Control Fijo</h4>
-                        <p style="color: #616161;">La frontera no se mueve respecto al observador. Ejemplo: un tanque de almacenamiento.</p>
+                        <p style="color: var(--charcoal-brown);">La frontera no se mueve respecto al observador. Ejemplo: un tanque de almacenamiento.</p>
                     </div>
                     <div class="card-article">
-                        <div class="card-icon" style="background: #E8F5E9; color: #2E7D32;">&#128295;</div>
+                        <div class="card-icon" style="background: var(--porcelain-2); color: #2E7D32;">&#128295;</div>
                         <h4 style="margin-top: 0;">Volumen de Control Movil</h4>
-                        <p style="color: #616161;">La frontera se desplaza. Ejemplo: un pistón en un compresor.</p>
+                        <p style="color: var(--charcoal-brown);">La frontera se desplaza. Ejemplo: un pistón en un compresor.</p>
                     </div>
                 </div>
 
@@ -426,6 +490,7 @@
                 <div class="equation-box">
                     <div class="eq-number">(3.1)</div>
                     $$\frac{dm_{\text{sistema}}}{dt} = \sum_{j=1}^{N} \dot{m}_{\text{entrada},j} - \sum_{k=1}^{M} \dot{m}_{\text{salida},k} + \dot{m}_{\text{generada}} - \dot{m}_{\text{consumida}}$$
+                    <div class="math-fallback">dm_sistema/dt = Σ ṁ_entrada,j - Σ ṁ_salida,k + ṁ_generada - ṁ_consumida</div>
                     <div class="eq-desc">
                         <strong>Variables:</strong><br>
                         $m_{\text{sistema}}$ - Masa total dentro del VC [kg]<br>
@@ -443,6 +508,7 @@
                 <div class="equation-box">
                     <div class="eq-number">(3.2)</div>
                     $$\frac{dn_{\text{sistema}}}{dt} = \sum_{j=1}^{N} \dot{n}_{\text{entrada},j} - \sum_{k=1}^{M} \dot{n}_{\text{salida},k} + \sum_{i=1}^{R} \dot{\xi}_i \cdot \nu_{\text{componente},i}$$
+                    <div class="math-fallback">dn_sistema/dt = Σ ṅ_entrada,j - Σ ṅ_salida,k + Σ ξ̇_i · ν_componente,i</div>
                     <div class="eq-desc">
                         <strong>Variables:</strong><br>
                         $n_{\text{sistema}}$ - Número total de moles en el sistema [mol]<br>
@@ -466,18 +532,20 @@
                 <div class="equation-box">
                     <div class="eq-number">(4.1)</div>
                     $$\frac{dm_{\text{sistema}}}{dt} = 0 \quad \text{y} \quad \frac{\partial \rho}{\partial t} = 0$$
+                    <div class="math-fallback">dm_sistema/dt = 0   y   ∂ρ/∂t = 0</div>
                 </div>
 
                 <div class="highlight-box-article success">
                     <div class="label">Ecuación del Balance Estacionario</div>
                     $$\sum \dot{m}_{\text{entrada}} - \sum \dot{m}_{\text{salida}} + \dot{m}_{\text{generada}} - \dot{m}_{\text{consumida}} = 0$$
+                    <div class="math-fallback">Σ ṁ_entrada - Σ ṁ_salida + ṁ_generada - ṁ_consumida = 0</div>
                 </div>
 
                 <div class="cards-grid-article">
                     <div class="card-article">
                         <div class="card-icon" style="background: #E8F5E9; color: #2E7D32;">&#9989;</div>
                         <h4 style="margin-top: 0;">Caracteristicas</h4>
-                        <ul style="margin-left: 20px; color: #616161;">
+                        <ul style="margin-left: 20px; color: var(--charcoal-brown);">
                             <li>Propiedades constantes en el tiempo</li>
                             <li>Puede haber gradientes espaciales</li>
                             <li>Condicion deseada en plantas petroquimicas</li>
@@ -486,7 +554,7 @@
                     <div class="card-article">
                         <div class="card-icon" style="background: #FFF3E0; color: #E65100;">&#127981;</div>
                         <h4 style="margin-top: 0;">Ejemplo Practico</h4>
-                        <p style="color: #616161;">Una columna de destilación operando en condiciones constantes, donde los flujos de destilado y fondos no varian con el tiempo.</p>
+                        <p style="color: var(--charcoal-brown);">Una columna de destilación operando en condiciones constantes, donde los flujos de destilado y fondos no varian con el tiempo.</p>
                     </div>
                 </div>
 
@@ -497,44 +565,48 @@
                 <div class="equation-box">
                     <div class="eq-number">(4.2)</div>
                     $$\frac{dm_{\text{sistema}}}{dt} \neq 0$$
+                    <div class="math-fallback">dm_sistema/dt ≠ 0</div>
                 </div>
 
                 <div class="highlight-box-article warning">
                     <div class="label">Ecuación del Balance Transitorio</div>
                     $$\frac{dm_{\text{sistema}}}{dt} = \sum \dot{m}_{\text{entrada}} - \sum \dot{m}_{\text{salida}} + \dot{m}_{\text{generada}} - \dot{m}_{\text{consumida}}$$
+                    <div class="math-fallback">dm_sistema/dt = Σ ṁ_entrada - Σ ṁ_salida + ṁ_generada - ṁ_consumida</div>
                 </div>
 
                 <div class="cards-grid-article">
                     <div class="card-article">
                         <div class="card-icon" style="background: #FFEBEE; color: #C62828;">&#9888;&#65039;</div>
                         <h4 style="margin-top: 0;">Caracteristicas</h4>
-                        <ul style="margin-left: 20px; color: #616161;">
+                        <ul style="margin-left: 20px; color: var(--charcoal-brown);">
                             <li>Propiedades dependen del tiempo</li>
                             <li>Requiere resolver EDO o EDP</li>
                             <li>Arranques, paradas, perturbaciones</li>
                         </ul>
                     </div>
                     <div class="card-article">
-                        <div class="card-icon" style="background: #E3F2FD; color: #0D47A1;">&#9201;&#65039;</div>
+                        <div class="card-icon" style="background: var(--porcelain-2); color: var(--dark-amaranth);">&#9201;&#65039;</div>
                         <h4 style="margin-top: 0;">Ejemplo Practico</h4>
-                        <p style="color: #616161;">El llenado de un tanque de almacenamiento, el arranque de un reactor, o la respuesta ante un cambio en la alimentacion.</p>
+                        <p style="color: var(--charcoal-brown);">El llenado de un tanque de almacenamiento, el arranque de un reactor, o la respuesta ante un cambio en la alimentacion.</p>
                     </div>
                 </div>
 
                 <h3 style="font-family: var(--font-serif); font-size: 1.4rem; margin: 1.5rem 0 0.5rem; color: var(--text-primary);">4.2 Según la Presencia de Reacción Química</h3>
 
-                <h4 style="font-family: var(--font-serif); font-size: 1.2rem; margin: 1rem 0 0.5rem; color: #0D47A1;">A. Balance Sin Reacción Química (Balance de Masa Físico)</h4>
+                <h4 style="font-family: var(--font-serif); font-size: 1.2rem; margin: 1rem 0 0.5rem; color: var(--dark-amaranth);">A. Balance Sin Reacción Química (Balance de Masa Físico)</h4>
 
                 <p>Cuando no ocurren transformaciones químicas dentro del volumen de control, la masa de cada componente se conserva individualmente:</p>
 
                 <div class="equation-box">
                     <div class="eq-number">(4.3)</div>
                     $$\dot{m}_{\text{generada}} = \dot{m}_{\text{consumida}} = 0$$
+                    <div class="math-fallback">ṁ_generada = ṁ_consumida = 0</div>
                 </div>
 
                 <div class="highlight-box-article">
                     <div class="label">Ecuación General - Sin Reacción</div>
                     $$\frac{dm_{\text{sistema}}}{dt} = \sum \dot{m}_{\text{entrada}} - \sum \dot{m}_{\text{salida}}$$
+                    <div class="math-fallback">dm_sistema/dt = Σ ṁ_entrada - Σ ṁ_salida</div>
                 </div>
 
                 <p><strong>Para cada componente $i$:</strong></p>
@@ -542,10 +614,11 @@
                 <div class="equation-box">
                     <div class="eq-number">(4.4)</div>
                     $$\frac{dm_i}{dt} = \sum \dot{m}_{i,\text{entrada}} - \sum \dot{m}_{i,\text{salida}}$$
+                    <div class="math-fallback">dm_i/dt = Σ ṁ_i,entrada - Σ ṁ_i,salida</div>
                 </div>
 
                 <div class="process-diagram">
-                    <h4 style="margin-top: 0; color: #0D47A1;">Aplicaciónes en Petroquímica</h4>
+                    <h4 style="margin-top: 0; color: var(--dark-amaranth);">Aplicaciónes en Petroquímica</h4>
                     <div class="process-flow">
                         <div>
                             <div class="process-node">Separaciónes</div>
@@ -578,9 +651,10 @@
                 <div class="equation-box">
                     <div class="eq-number">(4.5)</div>
                     $$\frac{dm_i}{dt} = \sum \dot{m}_{i,\text{entrada}} - \sum \dot{m}_{i,\text{salida}} + r_i \cdot V$$
+                    <div class="math-fallback">dm_i/dt = Σ ṁ_i,entrada - Σ ṁ_i,salida + r_i · V</div>
                     <div class="eq-desc">
-                        $r_i$ - Velocidad de formación del componente $i$ por unidad de volumen [kg/(m&#xb3;s)]<br>
-                        $V$ - Volumen del reactor [m&#xb3;]
+                        $r_i$ - Velocidad de formación del componente $i$ por unidad de volumen [kg/(m³s)]<br>
+                        $V$ - Volumen del reactor [m³]
                     </div>
                 </div>
 
@@ -589,8 +663,9 @@
                 <div class="equation-box">
                     <div class="eq-number">(4.6)</div>
                     $$\frac{dn_i}{dt} = \sum \dot{n}_{i,\text{entrada}} - \sum \dot{n}_{i,\text{salida}} + R_i \cdot V$$
+                    <div class="math-fallback">dn_i/dt = Σ ṅ_i,entrada - Σ ṅ_i,salida + R_i · V</div>
                     <div class="eq-desc">
-                        $R_i$ - Velocidad molar de formación [mol/(m&#xb3;s)]
+                        $R_i$ - Velocidad molar de formación [mol/(m³s)]
                     </div>
                 </div>
 
@@ -599,11 +674,13 @@
                 <div class="equation-box">
                     <div class="eq-number">(4.7)</div>
                     $$\nu_A A + \nu_B B \rightarrow \nu_C C + \nu_D D$$
+                    <div class="math-fallback">ν_A A + ν_B B → ν_C C + ν_D D</div>
                 </div>
 
                 <div class="equation-box">
                     <div class="eq-number">(4.8)</div>
                     $$\frac{\dot{n}_C - \dot{n}_{C,0}}{\nu_C} = \frac{\dot{n}_D - \dot{n}_{D,0}}{\nu_D} = -\frac{\dot{n}_A - \dot{n}_{A,0}}{\nu_A} = -\frac{\dot{n}_B - \dot{n}_{B,0}}{\nu_B} = \dot{\xi}$$
+                    <div class="math-fallback">(ṅ_C - ṅ_C,0)/ν_C = (ṅ_D - ṅ_D,0)/ν_D = -(ṅ_A - ṅ_A,0)/ν_A = -(ṅ_B - ṅ_B,0)/ν_B = ξ̇</div>
                     <div class="eq-desc">
                         $\dot{\xi}$ - Velocidad de reacción (extensión de reacción por unidad de tiempo)
                     </div>
@@ -674,13 +751,16 @@
                         <h4 style="margin-top: 0;">Balance Físico - Estado Estacionario</h4>
                         <div class="equation-box" style="margin: 16px 0; padding: 16px;">
                             $$\sum \dot{m}_{\text{entrada}} = \sum \dot{m}_{\text{salida}}$$
+                            <div class="math-fallback">Σ ṁ_entrada = Σ ṁ_salida</div>
                         </div>
-                        <p style="font-size: 0.9rem; color: #616161;">
+                        <p style="font-size: 0.9rem; color: var(--charcoal-brown);">
                             <strong>Ejemplo:</strong> Balance de masa en una columna de destilación binaria.
                         </p>
-                        <div class="equation-box" style="margin: 12px 0; padding: 12px; background: white;">
+                        <div class="equation-box" style="margin: 12px 0; padding: 12px; background: var(--porcelain);">
                             $$F = D + B$$
                             $$F \cdot z_F = D \cdot x_D + B \cdot x_B$$
+                            <div class="math-fallback">F = D + B
+F·z_F = D·x_D + B·x_B</div>
                         </div>
                     </div>
 
@@ -689,27 +769,32 @@
                         <h4 style="margin-top: 0;">Balance con Reacción - Estado Estacionario</h4>
                         <div class="equation-box" style="margin: 16px 0; padding: 16px;">
                             $$\sum \dot{n}_{i,\text{entrada}} - \sum \dot{n}_{i,\text{salida}} + R_i \cdot V = 0$$
+                            <div class="math-fallback">Σ ṅ_i,entrada - Σ ṅ_i,salida + R_i·V = 0</div>
                         </div>
-                        <p style="font-size: 0.9rem; color: #616161;">
+                        <p style="font-size: 0.9rem; color: var(--charcoal-brown);">
                             <strong>Ejemplo:</strong> Reactor CSTR de primer orden $A \rightarrow B$.
                         </p>
-                        <div class="equation-box" style="margin: 12px 0; padding: 12px; background: white;">
+                        <div class="equation-box" style="margin: 12px 0; padding: 12px; background: var(--porcelain);">
                             $$F \cdot C_{A0} - F \cdot C_A - k \cdot C_A \cdot V = 0$$
                             $$C_A = \frac{C_{A0}}{1 + k \cdot \tau}$$
+                            <div class="math-fallback">F·C_A0 - F·C_A - k·C_A·V = 0
+C_A = C_A0 / (1 + k·τ)</div>
                         </div>
                     </div>
 
-                    <div class="matrix-cell" style="border-top-color: #1565C0;">
-                        <span class="type-label" style="background: #1565C0;">TIPO III</span>
+                    <div class="matrix-cell" style="border-top-color: var(--dark-amaranth);">
+                        <span class="type-label" style="background: var(--dark-amaranth);">TIPO III</span>
                         <h4 style="margin-top: 0;">Balance Físico - Estado Transitorio</h4>
                         <div class="equation-box" style="margin: 16px 0; padding: 16px;">
                             $$\frac{dm}{dt} = \sum \dot{m}_{\text{entrada}} - \sum \dot{m}_{\text{salida}}$$
+                            <div class="math-fallback">dm/dt = Σ ṁ_entrada - Σ ṁ_salida</div>
                         </div>
-                        <p style="font-size: 0.9rem; color: #616161;">
+                        <p style="font-size: 0.9rem; color: var(--charcoal-brown);">
                             <strong>Ejemplo:</strong> Llenado de un tanque esférico de radio $R$.
                         </p>
-                        <div class="equation-box" style="margin: 12px 0; padding: 12px; background: white;">
+                        <div class="equation-box" style="margin: 12px 0; padding: 12px; background: var(--porcelain);">
                             $$\rho \cdot \pi \cdot (2Rh - h^2) \cdot \frac{dh}{dt} = \dot{m}_{\text{entrada}} - \dot{m}_{\text{salida}}$$
+                            <div class="math-fallback">ρ·π·(2Rh - h²)·dh/dt = ṁ_entrada - ṁ_salida</div>
                         </div>
                     </div>
 
@@ -718,13 +803,16 @@
                         <h4 style="margin-top: 0;">Balance con Reacción - Estado Transitorio</h4>
                         <div class="equation-box" style="margin: 16px 0; padding: 16px;">
                             $$\frac{dn_i}{dt} = \sum \dot{n}_{i,\text{entrada}} - \sum \dot{n}_{i,\text{salida}} + R_i \cdot V$$
+                            <div class="math-fallback">dn_i/dt = Σ ṅ_i,entrada - Σ ṅ_i,salida + R_i·V</div>
                         </div>
-                        <p style="font-size: 0.9rem; color: #616161;">
+                        <p style="font-size: 0.9rem; color: var(--charcoal-brown);">
                             <strong>Ejemplo:</strong> Reactor batch para producción de polímeros.
                         </p>
-                        <div class="equation-box" style="margin: 12px 0; padding: 12px; background: white;">
+                        <div class="equation-box" style="margin: 12px 0; padding: 12px; background: var(--porcelain);">
                             $$\frac{dC_A}{dt} = -k \cdot C_A^n$$
                             $$\text{Para } n=1: \quad C_A(t) = C_{A0} \cdot e^{-kt}$$
+                            <div class="math-fallback">dC_A/dt = -k·C_A^n
+Para n=1: C_A(t) = C_A0·e^(-kt)</div>
                         </div>
                     </div>
                 </div>
@@ -739,9 +827,10 @@
                 <div class="equation-box">
                     <div class="eq-number">(6.1)</div>
                     $$\frac{\partial \rho}{\partial t} + \nabla \cdot (\rho \vec{v}) = r$$
+                    <div class="math-fallback">∂ρ/∂t + ∇·(ρv⃗) = r</div>
                     <div class="eq-desc">
-                        $\rho$ - Densidad del fluido [kg/m&#xb3;] &nbsp;|&nbsp; $\vec{v}$ - Vector velocidad [m/s]<br>
-                        $r$ - Tasa de generación de masa por unidad de volumen [kg/(m&#xb3;s)] &nbsp;|&nbsp; $\nabla \cdot$ - Divergencia
+                        $\rho$ - Densidad del fluido [kg/m³] &nbsp;|&nbsp; $\vec{v}$ - Vector velocidad [m/s]<br>
+                        $r$ - Tasa de generación de masa por unidad de volumen [kg/(m³s)] &nbsp;|&nbsp; $\nabla \cdot$ - Divergencia
                     </div>
                 </div>
 
@@ -750,26 +839,30 @@
                 <div class="equation-box">
                     <div class="eq-number">(6.2)</div>
                     $$\frac{\partial \rho}{\partial t} + \frac{\partial (\rho v_x)}{\partial x} + \frac{\partial (\rho v_y)}{\partial y} + \frac{\partial (\rho v_z)}{\partial z} = r$$
+                    <div class="math-fallback">∂ρ/∂t + ∂(ρv_x)/∂x + ∂(ρv_y)/∂y + ∂(ρv_z)/∂z = r</div>
                 </div>
 
                 <h3 style="font-family: var(--font-serif); font-size: 1.4rem; margin: 1.5rem 0 0.5rem; color: var(--text-primary);">6.3 Casos Particulares</h3>
 
                 <div class="cards-grid-article">
                     <div class="card-article">
-                        <div class="card-icon" style="background: #E3F2FD; color: #0D47A1;">&#128167;</div>
+                        <div class="card-icon" style="background: var(--porcelain-2); color: var(--dark-amaranth);">&#128167;</div>
                         <h4 style="margin-top: 0;">Fluido Incompresible</h4>
-                        <p style="color: #616161; margin-bottom: 12px;">$\rho = \text{constante}$, sin reacción:</p>
+                        <p style="color: var(--charcoal-brown); margin-bottom: 12px;">$\rho = \text{constante}$, sin reacción:</p>
                         <div class="equation-box" style="padding: 12px; margin: 0;">
                             $$\nabla \cdot \vec{v} = 0$$
                             $$\frac{\partial v_x}{\partial x} + \frac{\partial v_y}{\partial y} + \frac{\partial v_z}{\partial z} = 0$$
+                            <div class="math-fallback">∇·v⃗ = 0
+∂v_x/∂x + ∂v_y/∂y + ∂v_z/∂z = 0</div>
                         </div>
                     </div>
                     <div class="card-article">
                         <div class="card-icon" style="background: #FFF3E0; color: #E65100;">&#9889;</div>
                         <h4 style="margin-top: 0;">Flujo Estacionario</h4>
-                        <p style="color: #616161; margin-bottom: 12px;">$\partial \rho / \partial t = 0$:</p>
+                        <p style="color: var(--charcoal-brown); margin-bottom: 12px;">$\partial \rho / \partial t = 0$:</p>
                         <div class="equation-box" style="padding: 12px; margin: 0;">
                             $$\nabla \cdot (\rho \vec{v}) = r$$
+                            <div class="math-fallback">∇·(ρv⃗) = r</div>
                         </div>
                     </div>
                 </div>
@@ -784,42 +877,42 @@
                         <div class="step-number"></div>
                         <div class="step-content">
                             <h4 style="margin-top: 0;">Definir el Sistema y el Volumen de Control</h4>
-                            <p style="margin: 0; color: #616161;">Dibujar el proceso y delimitar claramente la frontera. Identificar todas las corrientes de entrada y salida.</p>
+                            <p style="margin: 0; color: var(--charcoal-brown);">Dibujar el proceso y delimitar claramente la frontera. Identificar todas las corrientes de entrada y salida.</p>
                         </div>
                     </div>
                     <div class="step">
                         <div class="step-number"></div>
                         <div class="step-content">
                             <h4 style="margin-top: 0;">Recopilar Informacion</h4>
-                            <p style="margin: 0; color: #616161;">Flujos conocidos y desconocidos, composiciones de las corrientes, condiciones de operación (T, P), datos cinéticos (si hay reacción).</p>
+                            <p style="margin: 0; color: var(--charcoal-brown);">Flujos conocidos y desconocidos, composiciones de las corrientes, condiciones de operación (T, P), datos cinéticos (si hay reacción).</p>
                         </div>
                     </div>
                     <div class="step">
                         <div class="step-number"></div>
                         <div class="step-content">
                             <h4 style="margin-top: 0;">Plantear las Ecuaciónes</h4>
-                            <p style="margin: 0; color: #616161;">Balance total de masa, balances para cada componente independiente, relaciones adicionales (estequiometria, equilibrio, restricciones).</p>
+                            <p style="margin: 0; color: var(--charcoal-brown);">Balance total de masa, balances para cada componente independiente, relaciones adicionales (estequiometria, equilibrio, restricciones).</p>
                         </div>
                     </div>
                     <div class="step">
                         <div class="step-number"></div>
                         <div class="step-content">
                             <h4 style="margin-top: 0;">Verificar Grados de Libertad</h4>
-                            <p style="margin: 0; color: #616161;">Número de incógnitas vs. número de ecuaciones independientes. Debe cumplirse: $N_{\text{ecuaciones}} \geq N_{\text{incógnitas}}$</p>
+                            <p style="margin: 0; color: var(--charcoal-brown);">Número de incógnitas vs. número de ecuaciones independientes. Debe cumplirse: $N_{\text{ecuaciones}} \geq N_{\text{incógnitas}}$</p>
                         </div>
                     </div>
                     <div class="step">
                         <div class="step-number"></div>
                         <div class="step-content">
                             <h4 style="margin-top: 0;">Resolver el Sistema</h4>
-                            <p style="margin: 0; color: #616161;">Métodos algebraicos (estacionario) o métodos numéricos/diferenciales (transitorio).</p>
+                            <p style="margin: 0; color: var(--charcoal-brown);">Métodos algebraicos (estacionario) o métodos numéricos/diferenciales (transitorio).</p>
                         </div>
                     </div>
                     <div class="step">
                         <div class="step-number"></div>
                         <div class="step-content">
                             <h4 style="margin-top: 0;">Verificar y Validar</h4>
-                            <p style="margin: 0; color: #616161;">Comprobar que se cumpla la conservación de la masa total. Analizar si los resultados tienen sentido físico (signos, magnitudes).</p>
+                            <p style="margin: 0; color: var(--charcoal-brown);">Comprobar que se cumpla la conservación de la masa total. Analizar si los resultados tienen sentido físico (signos, magnitudes).</p>
                         </div>
                     </div>
                 </div>
@@ -876,7 +969,7 @@
                 </div>
 
                 <h3 style="font-family: var(--font-serif); font-size: 1.4rem; margin: 1.5rem 0 0.5rem; color: var(--text-primary);">Referencias Sugeridas</h3>
-                <ul style="margin-left: 24px; color: #616161;">
+                <ul style="margin-left: 24px; color: var(--charcoal-brown);">
                     <li>Felder, R.M. & Rousseau, R.W. (2020). <em>Elementary Principles of Chemical Processes</em> (4th Ed.). Wiley.</li>
                     <li>Himmelblau, D.M. & Riggs, J.B. (2012). <em>Basic Principles and Calculations in Chemical Engineering</em> (8th Ed.). Prentice Hall.</li>
                     <li>Fogler, H.S. (2016). <em>Elements of Chemical Reaction Engineering</em> (5th Ed.). Pearson.</li>
@@ -901,7 +994,7 @@
             </div>
             <div class="comments-wrapper fade-in-up">
                 <script src="https://giscus.app/client.js"
-                        data-repo="poloz-z/blog-petroquímica-uvh"
+                        data-repo="poloz-z/blog-petroquimica-uvh"
                         data-repo-id="R_kgDOSkGGrg"
                         data-category="General"
                         data-category-id="DIC_kwDOSkGGrs4C9jQf"
@@ -927,5 +1020,14 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script>
+        // Fallback: si MathJax no carga en 5 segundos, mostrar texto plano
+        setTimeout(function() {
+            if (!document.body.classList.contains('mathjax-loaded')) {
+                console.warn('MathJax no cargó - activando fallback visual');
+                document.body.classList.add('mathjax-fallback');
+            }
+        }, 5000);
+    </script>
 </body>
 </html>
