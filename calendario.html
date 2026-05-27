@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario Académico - Ingeniería Petroquímica UVH</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* ========== CALENDAR SPECIFIC STYLES ========== */
+        .calendar-section {
+            padding: 10rem 0 4rem;
+            background: linear-gradient(135deg, var(--parchment) 0%, var(--porcelain) 100%);
+            min-height: 100vh;
+        }
+
+        .calendar-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .calendar-title {
+            font-family: var(--font-serif);
+            font-size: clamp(1.5rem, 3vw, 2.2rem);
+            color: var(--text-primary);
+        }
+
+        .calendar-nav {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .calendar-btn {
+            width: 44px;
+            height: 44px;
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+            color: var(--text-primary);
+            border-radius: 12px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: var(--transition);
+            font-family: var(--font-sans);
+        }
+
+        .calendar-btn:hover {
+            background: var(--accent);
+            color: var(--porcelain);
+            border-color: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px var(--shadow-hover);
+        }
+
+        .current-month-label {
+            font-family: var(--font-serif);
+            font-size: 1.3rem;
+            color: var(--text-primary);
+            min-width: 200px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .calendar-grid {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 4px 24px var(--shadow);
+        }
+
+        .weekdays {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .weekday {
+            text-align: center;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-muted);
+            padding: 0.75rem 0;
+        }
+
+        .days {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 0.5rem;
+        }
+
+        .day {
+            aspect-ratio: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            border: 1px solid transparent;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+            background: var(--bg-primary);
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .day:hover {
+            background: var(--accent-dim);
+            border-color: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px var(--shadow);
+        }
+
+        .day.other-month {
+            color: var(--dust-grey);
+            opacity: 0.5;
+        }
+
+        .day.today {
+            background: var(--accent);
+            color: var(--porcelain);
+            font-weight: 600;
+            box-shadow: 0 4px 16px rgba(119, 16, 48, 0.25);
+        }
+
+        .day.today:hover {
+            background: var(--rich-mahogany);
+        }
+
+        .day.holiday {
+            background: rgba(119, 16, 48, 0.08);
+            border-color: var(--accent);
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .day.holiday::after {
+            content: '';
+            position: absolute;
+            bottom: 6px;
+            width: 4px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+
+        .day.holiday:hover::after {
+            background: var(--porcelain);
+        }
+
+        .day-number {
+            font-size: 1rem;
+        }
+
+        /* Holiday Info Panel */
+        .holiday-panel {
+            margin-top: 2rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px var(--shadow);
+            min-height: 120px;
+        }
+
+        .holiday-panel.empty {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        .holiday-panel h3 {
+            font-family: var(--font-serif);
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+            font-size: 1.3rem;
+        }
+
+        .holiday-panel p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .holiday-badge {
+            display: inline-block;
+            background: var(--accent-dim);
+            color: var(--accent);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.75rem;
+        }
+
+        .holiday-list {
+            margin-top: 3rem;
+        }
+
+        .holiday-list h3 {
+            font-family: var(--font-serif);
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.4rem;
+        }
+
+        .holiday-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .holiday-date {
+            background: var(--accent);
+            color: var(--porcelain);
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .holiday-date .day-num {
+            font-size: 1.2rem;
+            line-height: 1;
+        }
+
+        .holiday-date .month-abbr {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            opacity: 0.9;
+        }
+
+        .holiday-info h4 {
+            font-family: var(--font-serif);
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+            font-size: 1.1rem;
+        }
+
+        .holiday-info p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .legend {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .legend-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .legend-dot.today { background: var(--accent); }
+        .legend-dot.holiday { background: rgba(119, 16, 48, 0.15); border: 2px solid var(--accent); }
+        .legend-dot.normal { background: var(--bg-primary); border: 1px solid var(--border); }
+
+        @media (max-width: 768px) {
+            .calendar-section {
+                padding: 7rem 0 3rem;
+            }
+            
+            .calendar-grid {
+                padding: 1rem;
+                border-radius: 12px;
+            }
+
+            .day {
+                font-size: 0.8rem;
+                border-radius: 8px;
+            }
+
+            .weekday {
+                font-size: 0.7rem;
+                padding: 0.5rem 0;
+            }
+
+            .calendar-header {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .calendar-nav {
+                justify-content: space-between;
+            }
+
+            .current-month-label {
+                order: -1;
+                text-align: center;
+                min-width: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="assets/logo-uvh.png" alt="UVH Logo">
+                <span>Ingeniería Petroquímica</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html#inicio">Inicio</a></li>
+                <li><a href="index.html#contenido">Contenido</a></li>
+                <li><a href="recursos.html">Recursos</a></li>
+                <li><a href="calendario.html" class="active">Calendario</a></li>
+                <li><a href="index.html#blog">Blog</a></li>
+                <li><a href="index.html#uvh">UVH</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <section class="calendar-section">
+        <div class="container">
+            <div class="section-header fade-in-up">
+                <span class="section-tag">Calendario</span>
+                <h2>Días Festivos y Académicos</h2>
+                <p class="section-desc">Consulta las fechas importantes del año académico y los feriados nacionales de Venezuela.</p>
+            </div>
+
+            <div class="calendar-wrapper fade-in-up">
+                <div class="calendar-header">
+                    <h2 class="calendar-title" id="yearDisplay">2026</h2>
+                    <div class="calendar-nav">
+                        <button class="calendar-btn" id="prevMonth" aria-label="Mes anterior">‹</button>
+                        <span class="current-month-label" id="currentMonth">Mayo 2026</span>
+                        <button class="calendar-btn" id="nextMonth" aria-label="Mes siguiente">›</button>
+                    </div>
+                </div>
+
+                <div class="calendar-grid">
+                    <div class="weekdays">
+                        <div class="weekday">Dom</div>
+                        <div class="weekday">Lun</div>
+                        <div class="weekday">Mar</div>
+                        <div class="weekday">Mié</div>
+                        <div class="weekday">Jue</div>
+                        <div class="weekday">Vie</div>
+                        <div class="weekday">Sáb</div>
+                    </div>
+                    <div class="days" id="calendarDays"></div>
+                </div>
+
+                <div class="legend">
+                    <div class="legend-item">
+                        <div class="legend-dot today"></div>
+                        <span>Hoy</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-dot holiday"></div>
+                        <span>Feriado / Festivo</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-dot normal"></div>
+                        <span>Día regular</span>
+                    </div>
+                </div>
+
+                <div class="holiday-panel empty" id="holidayPanel">
+                    <p>Selecciona un día marcado para ver detalles del feriado</p>
+                </div>
+
+                <div class="holiday-list fade-in-up">
+                    <h3>Festividades del mes</h3>
+                    <div id="monthHolidays"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p> UVH - Ingeniería Petroquímica. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // ========== HOLIDAYS DATA (Venezuela) ==========
+        const holidays = {
+            0: [  // January
+                { day: 1, name: "Año Nuevo", desc: "Inicio del año civil. Feriado nacional." },
+                { day: 6, name: "Día de Reyes", desc: "Celebración cristiana de la Epifanía." },
+                { day: 15, name: "Día de San Sebastián / Batalla de La Victoria", desc: "Conmemoración de la Batalla de La Victoria (1814) y feriado por San Sebastián." }
+            ],
+            1: [  // February
+                { day: 12, name: "Día de la Juventud", desc: "Conmemoración del natalicio de José Félix Ribas y reconocimiento a la juventud venezolana." },
+                { day: 16, name: "Carnaval", desc: "Lunes de Carnaval. Feriado móvil." },
+                { day: 17, name: "Carnaval", desc: "Martes de Carnaval. Feriado móvil." }
+            ],
+            2: [  // March
+                { day: 19, name: "Día de San José", desc: "Patrono de los trabajadores y las familias." }
+            ],
+            3: [  // April
+                { day: 2, name: "Jueves Santo", desc: "Semana Mayor. Feriado móvil." },
+                { day: 3, name: "Viernes Santo", desc: "Conmemoración de la crucifixión de Jesús. Feriado móvil." },
+                { day: 19, name: "Declaración de Independencia", desc: "Firma del Acta de Independencia de Venezuela (1810). Feriado nacional." }
+            ],
+            4: [  // May
+                { day: 1, name: "Día del Trabajador", desc: "Conmemoración internacional de la lucha obrera. Feriado nacional." },
+                { day: 12, name: "Día de las Madres", desc: "Celebración en honor a las madres venezolanas." }
+            ],
+            5: [  // June
+                { day: 24, name: "Batalla de Carabobo", desc: "Decisiva batalla por la independencia de Venezuela (1821). Feriado nacional." },
+                { day: 29, name: "Día de San Pedro y San Pablo", desc: "Festividad cristiana." }
+            ],
+            6: [  // July
+                { day: 5, name: "Día de la Independencia", desc: "Firma del Acta de Independencia definitiva (1811). Feriado nacional." },
+                { day: 24, name: "Natalicio del Libertador", desc: "Nacimiento de Simón Bolívar (1783). Feriado nacional." }
+            ],
+            7: [  // August
+                { day: 3, name: "Día de la Bandera", desc: "Conmemoración del izamiento de la Bandera Nacional en Lara (1806)." }
+            ],
+            8: [  // September
+                { day: 24, name: "Día de San Miguel Arcángel", desc: "Patrono de los paracaidistas y festividad cristiana." }
+            ],
+            9: [  // October
+                { day: 12, name: "Día de la Resistencia Indígena", desc: "Conmemoración de la resistencia de los pueblos originarios. Feriado nacional." }
+            ],
+            10: [ // November
+                { day: 1, name: "Día de Todos los Santos", desc: "Festividad cristiana." },
+                { day: 18, name: "Feria del Sol", desc: "Celebración tradicional en Mérida (fecha aproximada)." }
+            ],
+            11: [ // December
+                { day: 8, name: "Día de la Inmaculada Concepción", desc: "Festividad católica. Feriado bancario." },
+                { day: 17, name: "Elección de la Miss Venezuela", desc: "Evento cultural de tradición nacional." },
+                { day: 24, name: "Nochebuena", desc: "Víspera de Navidad. Feriado parcial." },
+                { day: 25, name: "Navidad", desc: "Natividad de Jesús. Feriado nacional." },
+                { day: 31, name: "Fín de Año", desc: "Último día del año. Feriado parcial." }
+            ]
+        };
+
+        // ========== CALENDAR LOGIC ==========
+        let currentDate = new Date();
+        let currentMonth = currentDate.getMonth();
+        let currentYear = currentDate.getFullYear();
+
+        const monthNames = [
+            "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+            "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+        ];
+
+        const monthAbbr = [
+            "ENE", "FEB", "MAR", "ABR", "MAY", "JUN",
+            "JUL", "AGO", "SEP", "OCT", "NOV", "DIC"
+        ];
+
+        function isHoliday(day, month) {
+            const monthHolidays = holidays[month] || [];
+            return monthHolidays.find(h => h.day === day);
+        }
+
+        function isToday(day, month, year) {
+            const today = new Date();
+            return day === today.getDate() && 
+                   month === today.getMonth() && 
+                   year === today.getFullYear();
+        }
+
+        function renderCalendar() {
+            const firstDay = new Date(currentYear, currentMonth, 1).getDay();
+            const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+            const daysInPrevMonth = new Date(currentYear, currentMonth, 0).getDate();
+            
+            const calendarDays = document.getElementById('calendarDays');
+            const currentMonthLabel = document.getElementById('currentMonth');
+            const yearDisplay = document.getElementById('yearDisplay');
+            
+            calendarDays.innerHTML = '';
+            currentMonthLabel.textContent = `${monthNames[currentMonth]} ${currentYear}`;
+            yearDisplay.textContent = currentYear;
+
+            // Previous month days
+            for (let i = firstDay - 1; i >= 0; i--) {
+                const day = daysInPrevMonth - i;
+                const dayEl = document.createElement('div');
+                dayEl.className = 'day other-month';
+                dayEl.innerHTML = `<span class="day-number">${day}</span>`;
+                calendarDays.appendChild(dayEl);
+            }
+
+            // Current month days
+            for (let day = 1; day <= daysInMonth; day++) {
+                const dayEl = document.createElement('div');
+                dayEl.className = 'day';
+                
+                if (isToday(day, currentMonth, currentYear)) {
+                    dayEl.classList.add('today');
+                }
+                
+                const holiday = isHoliday(day, currentMonth);
+                if (holiday) {
+                    dayEl.classList.add('holiday');
+                    dayEl.setAttribute('role', 'button');
+                    dayEl.setAttribute('tabindex', '0');
+                    dayEl.setAttribute('aria-label', `${day} de ${monthNames[currentMonth]}: ${holiday.name}`);
+                    
+                    dayEl.addEventListener('click', () => showHolidayInfo(holiday));
+                    dayEl.addEventListener('keypress', (e) => {
+                        if (e.key === 'Enter') showHolidayInfo(holiday);
+                    });
+                }
+                
+                dayEl.innerHTML = `<span class="day-number">${day}</span>`;
+                calendarDays.appendChild(dayEl);
+            }
+
+            // Next month days to fill grid (42 cells = 6 rows)
+            const totalCells = firstDay + daysInMonth;
+            const remainingCells = 42 - totalCells;
+            
+            for (let day = 1; day <= remainingCells; day++) {
+                const dayEl = document.createElement('div');
+                dayEl.className = 'day other-month';
+                dayEl.innerHTML = `<span class="day-number">${day}</span>`;
+                calendarDays.appendChild(dayEl);
+            }
+
+            renderMonthHolidays();
+        }
+
+        function showHolidayInfo(holiday) {
+            const panel = document.getElementById('holidayPanel');
+            panel.classList.remove('empty');
+            panel.innerHTML = `
+                <div class="holiday-badge">Festivo</div>
+                <h3>${holiday.name}</h3>
+                <p>${holiday.desc}</p>
+                <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-muted);">
+                    ${holiday.day} de ${monthNames[currentMonth]} de ${currentYear}
+                </p>
+            `;
+            
+            // Smooth scroll to panel on mobile
+            if (window.innerWidth < 768) {
+                panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        }
+
+        function renderMonthHolidays() {
+            const container = document.getElementById('monthHolidays');
+            const monthHolidays = holidays[currentMonth] || [];
+            
+            if (monthHolidays.length === 0) {
+                container.innerHTML = '<p style="color: var(--text-muted); font-style: italic;">No hay festivos registrados para este mes.</p>';
+                return;
+            }
+
+            container.innerHTML = monthHolidays.map(h => `
+                <div class="holiday-item">
+                    <div class="holiday-date">
+                        <span class="day-num">${h.day}</span>
+                        <span class="month-abbr">${monthAbbr[currentMonth]}</span>
+                    </div>
+                    <div class="holiday-info">
+                        <h4>${h.name}</h4>
+                        <p>${h.desc}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // ========== EVENT LISTENERS ==========
+        document.getElementById('prevMonth').addEventListener('click', () => {
+            currentMonth--;
+            if (currentMonth < 0) {
+                currentMonth = 11;
+                currentYear--;
+            }
+            renderCalendar();
+        });
+
+        document.getElementById('nextMonth').addEventListener('click', () => {
+            currentMonth++;
+            if (currentMonth > 11) {
+                currentMonth = 0;
+                currentYear++;
+            }
+            renderCalendar();
+        });
+
+        // Initialize
+        renderCalendar();
+    </script>
+</body>
+</html>
