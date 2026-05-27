@@ -1,3 +1,12 @@
+// ========== UMAMI ANALYTICS ==========
+(function() {
+    const script = document.createElement('script');
+    script.defer = true;
+    script.src = 'https://cloud.umami.is/script.js';
+    script.setAttribute('data-website-id', '7bf763fd-7645-40a9-8cfb-404a69f86da5');
+    document.head.appendChild(script);
+})();
+
 // ========== SCROLL ANIMATIONS ==========
 const observerOptions = {
   threshold: 0.1,
